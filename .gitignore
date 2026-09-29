@@ -1,0 +1,6 @@
+# secrets / server info - never commit
+serverdetails.md
+**/serverdetails.md
+*.pem
+*.key
+.env
