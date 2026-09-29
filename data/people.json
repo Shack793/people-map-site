@@ -1,0 +1,136 @@
+[
+  {
+    "bio": "Placeholder profile. Replace with a real person.",
+    "email": "alex.morgan@example.com",
+    "link": "https://example.com/",
+    "linkLabel": "View profile page",
+    "location": "Accra",
+    "managerId": "",
+    "name": "Alex Morgan",
+    "role": "Chief Executive Officer",
+    "sort": 1,
+    "team": "Leadership",
+    "id": "p01"
+  },
+  {
+    "bio": "",
+    "email": "jordan.lee@example.com",
+    "location": "Remote",
+    "managerId": "p01",
+    "name": "Jordan Lee",
+    "role": "Chief Technology Officer",
+    "sort": 1,
+    "team": "Engineering",
+    "id": "p02"
+  },
+  {
+    "bio": "",
+    "email": "sam.rivera@example.com",
+    "location": "Accra",
+    "managerId": "p01",
+    "name": "Sam Rivera",
+    "role": "Chief Operating Officer",
+    "sort": 2,
+    "team": "Operations",
+    "id": "p03"
+  },
+  {
+    "bio": "",
+    "email": "taylor.brooks@example.com",
+    "location": "Lagos",
+    "managerId": "p01",
+    "name": "Taylor Brooks",
+    "role": "Head of Marketing",
+    "sort": 3,
+    "team": "Marketing",
+    "id": "p04"
+  },
+  {
+    "bio": "",
+    "email": "casey.nguyen@example.com",
+    "location": "Remote",
+    "managerId": "p02",
+    "name": "Casey Nguyen",
+    "role": "Engineering Manager",
+    "sort": 1,
+    "team": "Engineering",
+    "id": "p05"
+  },
+  {
+    "bio": "",
+    "email": "riley.chen@example.com",
+    "location": "Remote",
+    "managerId": "p05",
+    "name": "Riley Chen",
+    "role": "Senior Software Engineer",
+    "sort": 1,
+    "team": "Engineering",
+    "id": "p06"
+  },
+  {
+    "bio": "",
+    "email": "morgan.patel@example.com",
+    "location": "Accra",
+    "managerId": "p05",
+    "name": "Morgan Patel",
+    "role": "Software Engineer",
+    "sort": 2,
+    "team": "Engineering",
+    "id": "p07"
+  },
+  {
+    "bio": "",
+    "email": "jamie.okafor@example.com",
+    "location": "Accra",
+    "managerId": "p02",
+    "name": "Jamie Okafor",
+    "role": "Product Designer",
+    "sort": 2,
+    "team": "Design",
+    "id": "p08"
+  },
+  {
+    "bio": "",
+    "email": "drew.mensah@example.com",
+    "location": "Kumasi",
+    "managerId": "p03",
+    "name": "Drew Mensah",
+    "role": "Operations Lead",
+    "sort": 1,
+    "team": "Operations",
+    "id": "p09"
+  },
+  {
+    "bio": "",
+    "email": "avery.kim@example.com",
+    "location": "Accra",
+    "managerId": "p03",
+    "name": "Avery Kim",
+    "role": "Finance Manager",
+    "sort": 2,
+    "team": "Finance",
+    "id": "p10"
+  },
+  {
+    "bio": "",
+    "email": "quinn.adeyemi@example.com",
+    "location": "Lagos",
+    "managerId": "p04",
+    "name": "Quinn Adeyemi",
+    "role": "Content Lead",
+    "sort": 1,
+    "team": "Marketing",
+    "id": "p11"
+  },
+  {
+    "bio": "",
+    "email": "parker.diaz@example.com",
+    "location": "Remote",
+    "managerId": "p04",
+    "name": "Parker Diaz",
+    "role": "Growth Marketer",
+    "sort": 2,
+    "team": "Marketing",
+    "id": "p12"
+  }
+]

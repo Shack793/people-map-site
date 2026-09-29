@@ -1,0 +1,48 @@
+{
+  "accent": "#0f6e6a",
+  "defaultView": "tree",
+  "footer": "© Acme Co. · Sample content, replace in Settings",
+  "intro": "Click anyone to see their profile.",
+  "labelPeople": "people",
+  "labelPerson": "person",
+  "logoColor": "#0f6e6a",
+  "logoImageId": "",
+  "logoMode": "glyph",
+  "logoText": "AC",
+  "pageTitle": "Organization chart",
+  "showCollapse": false,
+  "showEmail": true,
+  "showIntro": true,
+  "showLocation": true,
+  "showSearch": false,
+  "showStats": false,
+  "showTeams": false,
+  "showViewToggle": false,
+  "siteName": "Acme Co.",
+  "teams": [
+    {
+      "color": "#6b4fbb",
+      "name": "Leadership"
+    },
+    {
+      "color": "#1f6fb2",
+      "name": "Engineering"
+    },
+    {
+      "color": "#b24f86",
+      "name": "Design"
+    },
+    {
+      "color": "#9a6b12",
+      "name": "Operations"
+    },
+    {
+      "color": "#2f7d3c",
+      "name": "Finance"
+    },
+    {
+      "color": "#c2541b",
+      "name": "Marketing"
+    }
+  ]
+}

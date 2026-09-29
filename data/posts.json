@@ -1,0 +1,46 @@
+[
+  {
+    "author": "Alex Morgan",
+    "body": "This is a placeholder post. Replace it with your own announcement.\n\nThis page is where we'll share **company news**, team updates and upcoming events. Check back here for the latest.\n\n## What you'll find here\n\n- Announcements about new people and roles\n- Monthly progress updates\n- Dates for team events",
+    "category": "Announcement",
+    "coverId": "",
+    "date": "2026-09-28",
+    "pinned": true,
+    "title": "Welcome to our new team page",
+    "updatedAt": "2026-09-28T12:00:00Z",
+    "id": "b01"
+  },
+  {
+    "author": "Sam Rivera",
+    "body": "Placeholder update. Summarize what the team worked on this month, what shipped and what's coming next.\n\n## Highlights\n\n- A milestone the team reached\n- A new partnership or customer\n- Something planned for next month",
+    "category": "Update",
+    "coverId": "",
+    "date": "2026-09-20",
+    "pinned": false,
+    "title": "September progress update",
+    "updatedAt": "2026-09-20T12:00:00Z",
+    "id": "b02"
+  },
+  {
+    "author": "Taylor Brooks",
+    "body": "Placeholder post. Introduce new hires here, with their role and the team they're joining.\n\nYou can find everyone on the *Team* page.",
+    "category": "News",
+    "coverId": "",
+    "date": "2026-09-12",
+    "pinned": false,
+    "title": "Welcoming two new team members",
+    "updatedAt": "2026-09-12T12:00:00Z",
+    "id": "b03"
+  },
+  {
+    "author": "Drew Mensah",
+    "body": "Placeholder event post. Add the date, time, place and anything people should bring.\n\n> Tip: pin a post to keep it at the top of the page.",
+    "category": "Event",
+    "coverId": "",
+    "date": "2026-09-05",
+    "pinned": false,
+    "title": "Team get-together in October",
+    "updatedAt": "2026-09-05T12:00:00Z",
+    "id": "b04"
+  }
+]
