@@ -7,24 +7,19 @@ on:
 
 jobs:
   deploy:
-    name: FTP Deploy to Namecheap Shared Hosting
+    name: SSH (rsync) Deploy to Namecheap
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
 
-      - name: Deploy via FTP to Namecheap
-        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+      - name: Deploy via SSH (rsync) to Namecheap
+        uses: Burnett01/rsync-deployments@7.0.1
         with:
-          server: ${{ secrets.FTP_HOST }}
-          username: ${{ secrets.FTP_USERNAME }}
-          password: ${{ secrets.FTP_PASSWORD }}
-          port: ${{ secrets.FTP_PORT }}
-          protocol: ftp
-          local-dir: ./
-          server-dir: ${{ secrets.FTP_SERVER_DIR }}
-          exclude: |
-            **/.git*
-            **/.github/**
-            **/node_modules/**
-            .gitignore
+          switches: -avzr --delete --exclude='.git*' --exclude='.github/**' --exclude='node_modules/**' --exclude='.gitignore'
+          path: ./
+          remote_path: ${{ secrets.SSH_TARGET_DIR }}
+          remote_host: ${{ secrets.SSH_HOST }}
+          remote_user: ${{ secrets.SSH_USERNAME }}
+          remote_key: ${{ secrets.SSH_PRIVATE_KEY }}
+          remote_port: ${{ secrets.SSH_PORT }}
