@@ -73,7 +73,7 @@ main{padding:8px 0 32px;flex:1}
 .tree{display:flex;justify-content:center;min-width:max-content;margin:0 auto}
 .tree ul{display:flex;justify-content:center;padding:22px 0 0;margin:0;position:relative}
 .tree>ul{padding-top:0}
-.tree li{list-style:none;position:relative;padding:22px 7px 0;display:flex;flex-direction:column;align-items:center}
+.tree li{list-style:none;position:relative;padding:22px 10px 0;display:flex;flex-direction:column;align-items:center}
 .tree li::before,.tree li::after{content:"";position:absolute;top:0;width:50%;height:22px;border-top:1.5px solid var(--line)}
 .tree li::before{right:50%}
 .tree li::after{left:50%;border-left:1.5px solid var(--line)}
@@ -85,19 +85,19 @@ main{padding:8px 0 32px;flex:1}
 .tree li:first-child::after{border-top-left-radius:6px}
 .tree ul ul::before{content:"";position:absolute;top:0;left:50%;height:22px;border-left:1.5px solid var(--line)}
 
-.card{width:196px;background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:10px 12px;text-align:left;display:grid;grid-template-columns:36px 1fr;gap:4px 10px;position:relative;box-shadow:var(--shadow);transition:opacity .15s,border-color .15s}
+.card{width:260px;min-height:140px;background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:14px 16px;text-align:left;display:grid;grid-template-columns:52px 1fr;gap:6px 12px;position:relative;box-shadow:var(--shadow);transition:opacity .15s,border-color .15s;align-content:start}
 .card::before{content:"";position:absolute;inset:0 0 auto 0;height:3px;border-radius:10px 10px 0 0;background:var(--tc)}
 .card:hover{border-color:var(--ink-3)}
 .card.sel{border-color:var(--accent);box-shadow:0 0 0 2px var(--accent-soft),var(--shadow)}
 .card.dim{opacity:.32}
 .card.hit{border-color:var(--accent)}
 .card .open{position:absolute;inset:0;border:0;background:none;border-radius:10px}
-.av{width:36px;height:36px;border-radius:50%;display:grid;place-items:center;font-family:var(--display);font-weight:600;font-size:13px;color:var(--tc);background:color-mix(in srgb,var(--tc) 15%,var(--surface));grid-row:span 2;overflow:hidden;flex:none}
+.av{width:52px;height:52px;border-radius:50%;display:grid;place-items:center;font-family:var(--display);font-weight:600;font-size:18px;color:var(--tc);background:color-mix(in srgb,var(--tc) 15%,var(--surface));grid-row:span 2;overflow:hidden;flex:none;align-self:start}
 .av img{width:100%;height:100%;object-fit:cover}
-.nm{font-weight:600;font-size:14px;line-height:1.25;overflow-wrap:anywhere}
-.rl{font-size:12.5px;color:var(--ink-2);line-height:1.3;overflow-wrap:anywhere}
-.meta{grid-column:1/-1;display:flex;justify-content:space-between;align-items:center;margin-top:4px;gap:6px}
-.chip{font-family:var(--mono);font-size:10.5px;letter-spacing:.04em;text-transform:uppercase;color:var(--tc);background:color-mix(in srgb,var(--tc) 13%,var(--surface));padding:2px 6px;border-radius:4px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:120px}
+.nm{font-weight:600;font-size:17px;line-height:1.25;overflow-wrap:anywhere}
+.rl{font-size:14px;color:var(--ink-2);line-height:1.35;overflow-wrap:anywhere;min-height:2.7em}
+.meta{grid-column:1/-1;display:flex;justify-content:space-between;align-items:center;margin-top:6px;gap:6px;min-height:24px}
+.chip{font-family:var(--mono);font-size:11.5px;letter-spacing:.04em;text-transform:uppercase;color:var(--tc);background:color-mix(in srgb,var(--tc) 13%,var(--surface));padding:2px 6px;border-radius:4px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:150px}
 .card .ext{position:absolute;top:9px;right:9px;color:var(--ink-3);pointer-events:none}
 .card.linked .nm{padding-right:14px}
 a.card-link{text-decoration:none}
@@ -618,10 +618,12 @@ function renderTree(){
     const cls=["card",S.drawer&&S.drawer.id===p.id?"sel":"",S.q?(hit?"hit":"dim"):""].join(" ");
     const url=safeUrl(p.link),direct=url&&S.cfg.clickAction==="link";
     const opener=direct?`<a class="open" href="${esc(url)}" target="_blank" rel="noopener noreferrer" aria-label="${esc(p.linkLabel||"Open link")} for ${esc(p.name)} (opens in a new tab)"></a>`:`<button class="open" data-open="${esc(p.id)}" aria-label="Open ${esc(p.name)}"></button>`;
+    const reserveMeta=S.cfg.showTeams||S.cfg.showCollapse;
+    const showMeta=reserveMeta||direct;
     return `<li><div class="${cls}${url?" linked":""}" style="${tcs(p.team)}">
       ${opener}${url?`<span class="ext" title="Has a link">${EXT}</span>`:""}
       <span class="av">${avatar(p)}</span><span class="nm">${esc(p.name||"Unnamed")}</span><span class="rl">${esc(p.role||"—")}</span>
-      ${(S.cfg.showTeams||direct||(k.length&&S.cfg.showCollapse))?`<span class="meta">${S.cfg.showTeams?`<span class="chip">${esc(p.team||"Other")}</span>`:"<span></span>"}<span class="inline" style="gap:4px">${direct?`<button class="tog" data-open="${esc(p.id)}" aria-label="Profile for ${esc(p.name)}">Profile</button>`:""}${k.length&&S.cfg.showCollapse?`<button class="tog" data-tog="${esc(p.id)}" aria-expanded="${!coll}">${coll?"+":"−"} ${k.length}</button>`:""}</span></span>`:""}
+      ${showMeta?`<span class="meta">${S.cfg.showTeams?`<span class="chip">${esc(p.team||"Other")}</span>`:"<span></span>"}<span class="inline" style="gap:4px">${direct?`<button class="tog" data-open="${esc(p.id)}" aria-label="Profile for ${esc(p.name)}">Profile</button>`:""}${k.length&&S.cfg.showCollapse?`<button class="tog" data-tog="${esc(p.id)}" aria-expanded="${!coll}">${coll?"+":"−"} ${k.length}</button>`:`${reserveMeta?`<span class="tog" style="visibility:hidden" aria-hidden="true">− 0</span>`:""}`}</span></span>`:""}
     </div>${k.length&&!coll?`<ul>${k.map(node).join("")}</ul>`:""}</li>`;
   };
   $("tree").innerHTML=`<ul>${r.map(node).join("")}</ul>`;
