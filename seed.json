@@ -1,0 +1,220 @@
+{
+ "people": {
+  "p01": {
+   "bio": "Placeholder profile. Replace with a real person.",
+   "email": "alex.morgan@example.com",
+   "link": "https://example.com/",
+   "linkLabel": "View profile page",
+   "location": "Accra",
+   "managerId": "",
+   "name": "Alex Morgan",
+   "role": "Chief Executive Officer",
+   "sort": 1,
+   "team": "Leadership"
+  },
+  "p02": {
+   "bio": "",
+   "email": "jordan.lee@example.com",
+   "location": "Remote",
+   "managerId": "p01",
+   "name": "Jordan Lee",
+   "role": "Chief Technology Officer",
+   "sort": 1,
+   "team": "Engineering"
+  },
+  "p03": {
+   "bio": "",
+   "email": "sam.rivera@example.com",
+   "location": "Accra",
+   "managerId": "p01",
+   "name": "Sam Rivera",
+   "role": "Chief Operating Officer",
+   "sort": 2,
+   "team": "Operations"
+  },
+  "p04": {
+   "bio": "",
+   "email": "taylor.brooks@example.com",
+   "location": "Lagos",
+   "managerId": "p01",
+   "name": "Taylor Brooks",
+   "role": "Head of Marketing",
+   "sort": 3,
+   "team": "Marketing"
+  },
+  "p05": {
+   "bio": "",
+   "email": "casey.nguyen@example.com",
+   "location": "Remote",
+   "managerId": "p02",
+   "name": "Casey Nguyen",
+   "role": "Engineering Manager",
+   "sort": 1,
+   "team": "Engineering"
+  },
+  "p06": {
+   "bio": "",
+   "email": "riley.chen@example.com",
+   "location": "Remote",
+   "managerId": "p05",
+   "name": "Riley Chen",
+   "role": "Senior Software Engineer",
+   "sort": 1,
+   "team": "Engineering"
+  },
+  "p07": {
+   "bio": "",
+   "email": "morgan.patel@example.com",
+   "location": "Accra",
+   "managerId": "p05",
+   "name": "Morgan Patel",
+   "role": "Software Engineer",
+   "sort": 2,
+   "team": "Engineering"
+  },
+  "p08": {
+   "bio": "",
+   "email": "jamie.okafor@example.com",
+   "location": "Accra",
+   "managerId": "p02",
+   "name": "Jamie Okafor",
+   "role": "Product Designer",
+   "sort": 2,
+   "team": "Design"
+  },
+  "p09": {
+   "bio": "",
+   "email": "drew.mensah@example.com",
+   "location": "Kumasi",
+   "managerId": "p03",
+   "name": "Drew Mensah",
+   "role": "Operations Lead",
+   "sort": 1,
+   "team": "Operations"
+  },
+  "p10": {
+   "bio": "",
+   "email": "avery.kim@example.com",
+   "location": "Accra",
+   "managerId": "p03",
+   "name": "Avery Kim",
+   "role": "Finance Manager",
+   "sort": 2,
+   "team": "Finance"
+  },
+  "p11": {
+   "bio": "",
+   "email": "quinn.adeyemi@example.com",
+   "location": "Lagos",
+   "managerId": "p04",
+   "name": "Quinn Adeyemi",
+   "role": "Content Lead",
+   "sort": 1,
+   "team": "Marketing"
+  },
+  "p12": {
+   "bio": "",
+   "email": "parker.diaz@example.com",
+   "location": "Remote",
+   "managerId": "p04",
+   "name": "Parker Diaz",
+   "role": "Growth Marketer",
+   "sort": 2,
+   "team": "Marketing"
+  }
+ },
+ "posts": {
+  "b01": {
+   "author": "Alex Morgan",
+   "body": "This is a placeholder post. Replace it with your own announcement.\n\nThis page is where we'll share **company news**, team updates and upcoming events. Check back here for the latest.\n\n## What you'll find here\n\n- Announcements about new people and roles\n- Monthly progress updates\n- Dates for team events",
+   "category": "Announcement",
+   "coverId": "",
+   "date": "2026-09-28",
+   "pinned": true,
+   "title": "Welcome to our new team page",
+   "updatedAt": "2026-09-28T12:00:00Z"
+  },
+  "b02": {
+   "author": "Sam Rivera",
+   "body": "Placeholder update. Summarize what the team worked on this month, what shipped and what's coming next.\n\n## Highlights\n\n- A milestone the team reached\n- A new partnership or customer\n- Something planned for next month",
+   "category": "Update",
+   "coverId": "",
+   "date": "2026-09-20",
+   "pinned": false,
+   "title": "September progress update",
+   "updatedAt": "2026-09-20T12:00:00Z"
+  },
+  "b03": {
+   "author": "Taylor Brooks",
+   "body": "Placeholder post. Introduce new hires here, with their role and the team they're joining.\n\nYou can find everyone on the *Team* page.",
+   "category": "News",
+   "coverId": "",
+   "date": "2026-09-12",
+   "pinned": false,
+   "title": "Welcoming two new team members",
+   "updatedAt": "2026-09-12T12:00:00Z"
+  },
+  "b04": {
+   "author": "Drew Mensah",
+   "body": "Placeholder event post. Add the date, time, place and anything people should bring.\n\n> Tip: pin a post to keep it at the top of the page.",
+   "category": "Event",
+   "coverId": "",
+   "date": "2026-09-05",
+   "pinned": false,
+   "title": "Team get-together in October",
+   "updatedAt": "2026-09-05T12:00:00Z"
+  }
+ },
+ "drafts": {},
+ "config": {
+  "settings": {
+   "accent": "#0f6e6a",
+   "defaultView": "tree",
+   "footer": "© Acme Co. · Sample content, replace in Settings",
+   "intro": "Click anyone to see their profile.",
+   "labelPeople": "people",
+   "labelPerson": "person",
+   "logoColor": "#0f6e6a",
+   "logoImageId": "",
+   "logoMode": "glyph",
+   "logoText": "AC",
+   "pageTitle": "Organization chart",
+   "showCollapse": false,
+   "showEmail": true,
+   "showIntro": true,
+   "showLocation": true,
+   "showSearch": false,
+   "showStats": false,
+   "showTeams": false,
+   "showViewToggle": false,
+   "siteName": "Acme Co.",
+   "teams": [
+    {
+     "color": "#6b4fbb",
+     "name": "Leadership"
+    },
+    {
+     "color": "#1f6fb2",
+     "name": "Engineering"
+    },
+    {
+     "color": "#b24f86",
+     "name": "Design"
+    },
+    {
+     "color": "#9a6b12",
+     "name": "Operations"
+    },
+    {
+     "color": "#2f7d3c",
+     "name": "Finance"
+    },
+    {
+     "color": "#c2541b",
+     "name": "Marketing"
+    }
+   ]
+  }
+ },
+ "media": {}
+}

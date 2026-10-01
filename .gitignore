@@ -4,3 +4,12 @@ serverdetails.md
 *.pem
 *.key
 .env
+
+# site bundles - never commit
+*.zip
+
+# backend runtime (password hash, content, throttle, lock) - never commit
+data/site.php
+data/auth.php
+data/throttle.php
+data/.lock

@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<title>Team Hierarchy Map</title>
+<title>Updates · Acme Co.</title>
 <link rel="icon" id="favicon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230f6e6a'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -310,6 +310,15 @@ input[type=color]{width:40px;height:34px;padding:2px;border:1px solid var(--line
 .adm-gate h2{font-family:var(--display);margin:4px 0 0}
 .adm-gate p{margin:0;color:var(--ink-2)}
 .adm-gate .btn{text-decoration:none;color:var(--ink)}
+.adm-login{display:flex;flex-direction:column;gap:12px;width:min(380px,100%);text-align:left;background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:26px 24px;box-shadow:var(--shadow)}
+.adm-login .logo{width:44px;height:44px}
+.adm-login h2{font-family:var(--display);margin:4px 0 0;font-size:20px}
+.adm-login p{margin:0;color:var(--ink-2);font-size:13.5px}
+.adm-login .btn.primary{justify-content:center;padding:10px 14px;font-size:15px;color:var(--accent-ink)}
+.adm-login .adm-back{align-self:center;margin-top:2px}
+.adm-logout{border:0;background:none;font:inherit;cursor:pointer;width:100%;text-align:left}
+.adm-view+.adm-logout{margin-top:0;border-top:0;padding-top:9px}
+.adm-pw{margin-top:6px}
 .adm-form{background:var(--surface);border:1px solid var(--line);border-radius:12px;max-width:760px}
 .adm-form.wide{max-width:920px}
 .adm-form .db{overflow:visible;padding:22px}
@@ -421,25 +430,11 @@ const DEFAULTS={
   showBlog:true, homeLayout:"updates", navTeam:"Team", navBlog:"Updates", blogTitle:"Updates & announcements",
   blogIntro:"News, announcements and updates from the team.", categories:"Announcement, Update, News, Event"
 };
-const SAMPLE_POSTS=[
-  {id:"b01",title:"Welcome to our new team page",category:"Announcement",date:"2026-09-28",author:"Alex Morgan",pinned:true,coverId:"",body:"This is a placeholder post. Replace it with your own announcement.\n\nThis page is where we'll share **company news**, team updates and upcoming events."}
-];
-const SAMPLE=[
-  {id:"p01",name:"Alex Morgan",role:"Chief Executive Officer",team:"Leadership",managerId:"",location:"Accra",email:"alex.morgan@example.com",bio:"Placeholder profile. Replace with a real person.",sort:1},
-  {id:"p02",name:"Jordan Lee",role:"Chief Technology Officer",team:"Engineering",managerId:"p01",location:"Remote",email:"jordan.lee@example.com",bio:"",sort:1},
-  {id:"p03",name:"Sam Rivera",role:"Chief Operating Officer",team:"Operations",managerId:"p01",location:"Accra",email:"sam.rivera@example.com",bio:"",sort:2},
-  {id:"p04",name:"Taylor Brooks",role:"Head of Marketing",team:"Marketing",managerId:"p01",location:"Lagos",email:"taylor.brooks@example.com",bio:"",sort:3},
-  {id:"p05",name:"Casey Nguyen",role:"Engineering Manager",team:"Engineering",managerId:"p02",location:"Remote",email:"casey.nguyen@example.com",bio:"",sort:1},
-  {id:"p06",name:"Riley Chen",role:"Senior Software Engineer",team:"Engineering",managerId:"p05",location:"Remote",email:"riley.chen@example.com",bio:"",sort:1},
-  {id:"p07",name:"Morgan Patel",role:"Software Engineer",team:"Engineering",managerId:"p05",location:"Accra",email:"morgan.patel@example.com",bio:"",sort:2},
-  {id:"p08",name:"Jamie Okafor",role:"Product Designer",team:"Design",managerId:"p02",location:"Accra",email:"jamie.okafor@example.com",bio:"",sort:2},
-  {id:"p09",name:"Drew Mensah",role:"Operations Lead",team:"Operations",managerId:"p03",location:"Kumasi",email:"drew.mensah@example.com",bio:"",sort:1},
-  {id:"p10",name:"Avery Kim",role:"Finance Manager",team:"Finance",managerId:"p03",location:"Accra",email:"avery.kim@example.com",bio:"",sort:2},
-  {id:"p11",name:"Quinn Adeyemi",role:"Content Lead",team:"Marketing",managerId:"p04",location:"Lagos",email:"quinn.adeyemi@example.com",bio:"",sort:1},
-  {id:"p12",name:"Parker Diaz",role:"Growth Marketer",team:"Marketing",managerId:"p04",location:"Remote",email:"parker.diaz@example.com",bio:"",sort:2}
-];
+const SAMPLE_POSTS=[{"author": "Alex Morgan", "body": "This is a placeholder post. Replace it with your own announcement.\n\nThis page is where we'll share **company news**, team updates and upcoming events. Check back here for the latest.\n\n## What you'll find here\n\n- Announcements about new people and roles\n- Monthly progress updates\n- Dates for team events", "category": "Announcement", "coverId": "", "date": "2026-09-28", "pinned": true, "title": "Welcome to our new team page", "updatedAt": "2026-09-28T12:00:00Z", "id": "b01"}, {"author": "Sam Rivera", "body": "Placeholder update. Summarize what the team worked on this month, what shipped and what's coming next.\n\n## Highlights\n\n- A milestone the team reached\n- A new partnership or customer\n- Something planned for next month", "category": "Update", "coverId": "", "date": "2026-09-20", "pinned": false, "title": "September progress update", "updatedAt": "2026-09-20T12:00:00Z", "id": "b02"}, {"author": "Taylor Brooks", "body": "Placeholder post. Introduce new hires here, with their role and the team they're joining.\n\nYou can find everyone on the *Team* page.", "category": "News", "coverId": "", "date": "2026-09-12", "pinned": false, "title": "Welcoming two new team members", "updatedAt": "2026-09-12T12:00:00Z", "id": "b03"}, {"author": "Drew Mensah", "body": "Placeholder event post. Add the date, time, place and anything people should bring.\n\n> Tip: pin a post to keep it at the top of the page.", "category": "Event", "coverId": "", "date": "2026-09-05", "pinned": false, "title": "Team get-together in October", "updatedAt": "2026-09-05T12:00:00Z", "id": "b04"}];
+const SAMPLE=[{"bio": "Placeholder profile. Replace with a real person.", "email": "alex.morgan@example.com", "link": "https://example.com/", "linkLabel": "View profile page", "location": "Accra", "managerId": "", "name": "Alex Morgan", "role": "Chief Executive Officer", "sort": 1, "team": "Leadership", "id": "p01"}, {"bio": "", "email": "jordan.lee@example.com", "location": "Remote", "managerId": "p01", "name": "Jordan Lee", "role": "Chief Technology Officer", "sort": 1, "team": "Engineering", "id": "p02"}, {"bio": "", "email": "sam.rivera@example.com", "location": "Accra", "managerId": "p01", "name": "Sam Rivera", "role": "Chief Operating Officer", "sort": 2, "team": "Operations", "id": "p03"}, {"bio": "", "email": "taylor.brooks@example.com", "location": "Lagos", "managerId": "p01", "name": "Taylor Brooks", "role": "Head of Marketing", "sort": 3, "team": "Marketing", "id": "p04"}, {"bio": "", "email": "casey.nguyen@example.com", "location": "Remote", "managerId": "p02", "name": "Casey Nguyen", "role": "Engineering Manager", "sort": 1, "team": "Engineering", "id": "p05"}, {"bio": "", "email": "riley.chen@example.com", "location": "Remote", "managerId": "p05", "name": "Riley Chen", "role": "Senior Software Engineer", "sort": 1, "team": "Engineering", "id": "p06"}, {"bio": "", "email": "morgan.patel@example.com", "location": "Accra", "managerId": "p05", "name": "Morgan Patel", "role": "Software Engineer", "sort": 2, "team": "Engineering", "id": "p07"}, {"bio": "", "email": "jamie.okafor@example.com", "location": "Accra", "managerId": "p02", "name": "Jamie Okafor", "role": "Product Designer", "sort": 2, "team": "Design", "id": "p08"}, {"bio": "", "email": "drew.mensah@example.com", "location": "Kumasi", "managerId": "p03", "name": "Drew Mensah", "role": "Operations Lead", "sort": 1, "team": "Operations", "id": "p09"}, {"bio": "", "email": "avery.kim@example.com", "location": "Accra", "managerId": "p03", "name": "Avery Kim", "role": "Finance Manager", "sort": 2, "team": "Finance", "id": "p10"}, {"bio": "", "email": "quinn.adeyemi@example.com", "location": "Lagos", "managerId": "p04", "name": "Quinn Adeyemi", "role": "Content Lead", "sort": 1, "team": "Marketing", "id": "p11"}, {"bio": "", "email": "parker.diaz@example.com", "location": "Remote", "managerId": "p04", "name": "Parker Diaz", "role": "Growth Marketer", "sort": 2, "team": "Marketing", "id": "p12"}];
 
-const S={mediaMeta:new Map(),media:null,admKey:null,admQ:"",admPostTab:"all",authChecked:false,live:{people:false,posts:false,drafts:false,cfg:false},people:new Map(),posts:new Map(),drafts:new Map(),cat:"",cfg:{...DEFAULTS},view:"tree",viewChosen:false,q:"",collapsed:new Set(),drawer:null,draft:null,canEdit:false,db:null,assets:null,busy:false};
+const SAVED={"accent": "#0f6e6a", "defaultView": "tree", "footer": "© Acme Co. · Sample content, replace in Settings", "intro": "Click anyone to see their profile.", "labelPeople": "people", "labelPerson": "person", "logoColor": "#0f6e6a", "logoImageId": "", "logoMode": "glyph", "logoText": "AC", "pageTitle": "Organization chart", "showCollapse": false, "showEmail": true, "showIntro": true, "showLocation": true, "showSearch": false, "showStats": false, "showTeams": false, "showViewToggle": false, "siteName": "Acme Co.", "teams": [{"color": "#6b4fbb", "name": "Leadership"}, {"color": "#1f6fb2", "name": "Engineering"}, {"color": "#b24f86", "name": "Design"}, {"color": "#9a6b12", "name": "Operations"}, {"color": "#2f7d3c", "name": "Finance"}, {"color": "#c2541b", "name": "Marketing"}]};
+const S={mediaMeta:new Map(),media:null,admKey:null,admQ:"",admPostTab:"all",authChecked:false,live:{people:false,posts:false,drafts:false,cfg:false},people:new Map(),posts:new Map(),drafts:new Map(),cat:"",cfg:{...DEFAULTS,...SAVED},view:"tree",viewChosen:false,q:"",collapsed:new Set(),drawer:null,draft:null,canEdit:false,db:null,assets:null,busy:false};
 SAMPLE.forEach(p=>S.people.set(p.id,{...p}));
 SAMPLE_POSTS.forEach(p=>S.posts.set(p.id,{...p}));
 
@@ -447,7 +442,7 @@ const $=id=>document.getElementById(id);
 const esc=s=>String(s??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
 const hex=v=>/^#[0-9a-f]{6}$/i.test(String(v||""))?v:null;
 const initials=n=>(String(n||"?").trim().split(/\s+/).map(w=>w[0]).slice(0,2).join("")||"?").toUpperCase();
-const blob=id=>id?"/_blob/"+encodeURIComponent(id):"";
+const blob=id=>id?(S.server?"api.php?f=":"/_blob/")+encodeURIComponent(id):"";
 function teamColor(t){const f=(S.cfg.teams||[]).find(x=>x.name.toLowerCase()===String(t||"").toLowerCase());return f&&hex(f.color)||"#5b6776"}
 const tcs=t=>`--tcr:${S.cfg.showTeams?teamColor(t):(hex(S.cfg.accent)||"#0f6e6a")}`;
 const byOrder=(a,b)=>(a.sort??999)-(b.sort??999)||String(a.name).localeCompare(String(b.name));
@@ -1053,6 +1048,7 @@ const AI={
   posts:'<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 3h10l4 4v14H5z"/><path d="M9 11h6M9 15h6M9 7h3"/></svg>',
   media:'<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="2"/><circle cx="9" cy="10" r="2"/><path d="M21 17l-5-5-9 8"/></svg>',
   settings:'<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 7h10M18 7h2M4 17h2M10 17h10"/><circle cx="16" cy="7" r="2"/><circle cx="8" cy="17" r="2"/></svg>',
+  logout:'<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 4h4a1 1 0 0 1 1 1v14a1 1 0 0 1-1 1h-4"/><path d="M10 16l-4-4 4-4M6 12h10"/></svg>',
   site:'<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 4h6v6M20 4l-9 9M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5"/></svg>'
 };
 function admSection(sec){return({person:"people",newperson:"people",post:"posts",newpost:"posts"})[sec]||sec}
@@ -1076,9 +1072,11 @@ function renderAdmin(rt){
   const app=$("admin-app");
   document.title="Admin · "+(S.cfg.siteName||"Site");
   const gate=(t,m)=>{S.admKey=null;app.innerHTML=`<div class="adm-gate"><div><span class="logo">${logoHtml(S.cfg)}</span><h2>${t}</h2><p>${m}</p><a class="btn" href="#">← Back to the site</a></div></div>`};
-  if(!window.claude||!window.claude.use)return gate("Admin isn't available here","The admin area only works on the live site, for the owner and people with Editor access.");
-  if(!S.authChecked||(S.canEdit&&!adminReady()))return gate("Loading…","Getting your site's content.");
-  if(!S.canEdit)return gate("You don't have access","Only the site owner and people with Editor access can open the admin area. Ask the owner to give you Editor access from the Share menu.");
+  if(!S.authChecked)return gate("Loading…","Getting your site's content.");
+  if(S.serverError)return gate("The back end needs one fix",esc(S.serverError));
+  if(!S.runtime)return gate("Admin isn't available here","This copy of the site doesn't include its back end. Upload api.php next to index.html on a web host with PHP, then open this page there.");
+  if(!S.canEdit){if(S.server)return loginGate(app);return gate("You don't have access","Only the site owner and people with Editor access can open the admin area. Ask the owner to give you Editor access from the Share menu.")}
+  if(!adminReady())return gate("Loading…","Getting your site's content.");
   const key=location.hash,sec=rt.sec,formSec=/^(person|newperson|post|newpost|settings)$/.test(sec);
   if(S.admKey===key&&$("adm-body")){
     if(formSec&&$("adm-form")&&$("adm-form").childElementCount)return;
@@ -1090,7 +1088,7 @@ function renderAdmin(rt){
   app.innerHTML=`<aside class="adm-side">
       <a class="adm-brand" href="#admin"><span class="logo">${logoHtml(S.cfg)}</span><span><b>${esc(S.cfg.siteName||"Your site")}</b><small>Admin</small></span></a>
       <nav class="adm-nav" aria-label="Admin sections">${nav.map(([k,l,h])=>`<a href="#admin${h?"."+h:""}" ${cur===k?'aria-current="page"':""}>${AI[k]}<span>${l}</span>${k==="posts"&&drafts?`<em class="adm-count" title="Drafts">${drafts}</em>`:""}</a>`).join("")}</nav>
-      <a class="adm-view" href="#">${AI.site}<span>View site</span></a>
+      <a class="adm-view" href="#">${AI.site}<span>View site</span></a>${S.server?`<button type="button" class="adm-view adm-logout" data-logout>${AI.logout}<span>Log out</span></button>`:""}
     </aside>
     <section class="adm-main"><header class="adm-head" id="adm-head"></header><div id="adm-body"></div></section>`;
   renderAdminHead(rt);renderAdminBody();
@@ -1171,7 +1169,11 @@ function renderAdminBody(){
     S.busy=false;S.drawer=sec==="post"?{mode:"post",id:rt.id}:{mode:"post",isNew:true};S.draft=null;renderDrawer();return;
   }
   if(sec==="settings"){
-    b.innerHTML=`<div class="adm-form" id="adm-form"></div>`;
+    b.innerHTML=`<div class="adm-form" id="adm-form"></div>${S.server?`<form class="adm-form adm-pw" id="pw-form" novalidate><div class="db"><fieldset><legend>Admin password</legend>
+      <div class="field"><label for="pw-cur">Current password</label><input id="pw-cur" type="password" autocomplete="current-password"></div>
+      <div class="row2"><div class="field"><label for="pw-new">New password</label><input id="pw-new" type="password" autocomplete="new-password"><span class="hint">At least 8 characters.</span></div>
+      <div class="field"><label for="pw-new2">Type it again</label><input id="pw-new2" type="password" autocomplete="new-password"></div></div>
+      <div class="err" id="pw-err" hidden></div></fieldset></div><div class="df"><button class="btn primary" type="submit" id="pw-go">Change password</button></div></form>`:""}`;
     S.busy=false;S.drawer={mode:"settings"};S.draft=null;renderDrawer();return;
   }
   b.innerHTML=`<div class="adm-empty">This page doesn't exist. <a href="#admin">Go to Overview</a></div>`;
@@ -1237,6 +1239,101 @@ async function mediaDelete(id,btn){
   catch(err){btn.disabled=false;toast("Couldn't delete that file. Try again.")}
 }
 
+/* ---------- self-hosted back end (api.php), used when the site isn't running on claude.ai ---------- */
+const Server={
+  me:null,csrf:null,db:null,
+  async call(action,{method="GET",body,form}={}){
+    const opt={method,credentials:"same-origin",headers:{},cache:"no-store"};
+    if(method!=="GET"&&this.csrf)opt.headers["X-CSRF-Token"]=this.csrf;
+    if(form)opt.body=form;else if(body!==undefined){opt.headers["Content-Type"]="application/json";opt.body=JSON.stringify(body)}
+    let r;
+    try{r=await fetch("api.php?action="+encodeURIComponent(action),opt)}catch(_){throw{code:"unavailable",status:0,message:"Can't reach the server. Check your connection and try again."}}
+    let j=null;try{j=await r.json()}catch(_){}
+    if(!r.ok||!j||!j.ok){
+      const k=j&&j.error;
+      throw{code:k==="auth"?"auth":r.status===413?"too_large":r.status===415?"unsupported_type":k||"unavailable",kind:k,status:r.status||500,message:(j&&j.message)||"The server had a problem. Try again."};
+    }
+    return j;
+  },
+  async detect(){
+    try{
+      const r=await fetch("api.php?action=me",{credentials:"same-origin",cache:"no-store"});
+      const j=await r.json();
+      if(j&&j.ok){this.me=j;this.csrf=j.csrf;return{ok:true}}
+      if(j&&j.error==="setup")return{error:j.message};
+      return null;
+    }catch(_){return null}
+  },
+  makeDb(){
+    const self=this,subs=[];let data=null;
+    const meta={fromCache:false,hasPendingWrites:false};
+    const fire=s=>{
+      if(!data)return;
+      if(s.col){const o=data[s.col]||{};const docs=Object.keys(o).sort().map(id=>({id,exists:true,data:()=>o[id],metadata:meta}));s.cb({docs,empty:!docs.length,size:docs.length,metadata:meta,docChanges:()=>[]})}
+      else{const [c,id]=s.doc.split("/");const v=data[c]&&data[c][id];s.cb({id,exists:!!v,data:()=>v,metadata:meta})}
+    };
+    const fireAll=()=>setTimeout(()=>subs.slice().forEach(fire),0);
+    const refresh=async()=>{try{const j=await self.call("data");data=j.data;fireAll()}catch(e){if(!data)subs.slice().forEach(s=>s.err&&s.err(e))}};
+    refresh();
+    setInterval(()=>{if(document.visibilityState==="visible")refresh()},60000);
+    const sub=s=>{subs.push(s);if(data)setTimeout(()=>fire(s),0);return()=>{const i=subs.indexOf(s);if(i>=0)subs.splice(i,1)}};
+    return{
+      doc(path){const [c,id]=path.split("/");return{
+        async set(d){await self.call("set",{method:"POST",body:{col:c,id,doc:d}});if(data){data[c]=data[c]||{};data[c][id]=JSON.parse(JSON.stringify(d));fireAll()}},
+        async delete(){await self.call("delete",{method:"POST",body:{col:c,id}});if(data&&data[c]){delete data[c][id];fireAll()}},
+        onSnapshot(cb,err){return sub({doc:path,cb,err})}
+      }},
+      collection(col){return{onSnapshot(cb,err){return sub({col,cb,err})}}}
+    };
+  },
+  assets:{
+    async upload(f){const fd=new FormData();fd.append("file",f,f.name||"file");const j=await Server.call("upload",{method:"POST",form:fd});return{id:j.id,url:j.url,contentType:j.contentType,sizeBytes:j.sizeBytes}},
+    async list(){const j=await Server.call("media");return{assets:j.assets,usage:j.usage}},
+    async delete(id){const j=await Server.call("deleteMedia",{method:"POST",body:{id}});return{deleted:j.deleted}}
+  },
+  claude:{use:async n=>n==="db"?Server.db:n==="user"?{canEdit:async()=>!!(Server.me&&Server.me.loggedIn)}:n==="assets"?(Server.me&&Server.me.loggedIn?Server.assets:null):null}
+};
+function loginGate(app){
+  S.admKey=null;
+  if($("login-form"))return;
+  const setup=!!(Server.me&&Server.me.needsSetup);
+  app.innerHTML=`<div class="adm-gate"><form class="adm-login" id="login-form" novalidate>
+    <span class="logo">${logoHtml(S.cfg)}</span>
+    <h2>${setup?"Set up your admin password":"Admin login"}</h2>
+    <p>${setup?"Enter the setup key from the README that came with the site, then choose your password.":"Enter your admin password to manage the site."}</p>
+    ${setup?`<div class="field"><label for="lg-key">Setup key</label><input id="lg-key" autocomplete="off" spellcheck="false"></div>`:""}
+    <div class="field"><label for="lg-pw">${setup?"New password":"Password"}</label><input id="lg-pw" type="password" autocomplete="${setup?"new-password":"current-password"}">${setup?`<span class="hint">At least 8 characters.</span>`:""}</div>
+    ${setup?`<div class="field"><label for="lg-pw2">Type it again</label><input id="lg-pw2" type="password" autocomplete="new-password"></div>`:""}
+    <div class="err" id="lg-err" hidden></div>
+    <button class="btn primary" type="submit" id="lg-go">${setup?"Save password and log in":"Log in"}</button>
+    <a class="adm-back" href="#">← Back to the site</a>
+  </form></div>`;
+  setTimeout(()=>{const f=$(setup?"lg-key":"lg-pw");if(f)f.focus()},0);
+}
+async function doLogin(){
+  const setup=!!(Server.me&&Server.me.needsSetup),err=$("lg-err"),btn=$("lg-go"),pw=$("lg-pw").value;
+  const show=m=>{err.textContent=m;err.hidden=!m};
+  if(setup){
+    if(!$("lg-key").value.trim())return show("Enter the setup key.");
+    if(pw.length<8)return show("Choose a password of at least 8 characters.");
+    if(pw!==$("lg-pw2").value)return show("The two passwords don't match.");
+  }else if(!pw)return show("Enter your password.");
+  btn.disabled=true;show("");btn.textContent=setup?"Saving…":"Logging in…";
+  try{await Server.call(setup?"setup":"login",{method:"POST",body:setup?{setupKey:$("lg-key").value,password:pw}:{password:pw}});location.reload()}
+  catch(e){btn.disabled=false;btn.textContent=setup?"Save password and log in":"Log in";show(e.message||"Couldn't log in. Try again.")}
+}
+async function changePassword(){
+  const err=$("pw-err"),btn=$("pw-go"),cur=$("pw-cur").value,pw=$("pw-new").value;
+  const show=(m,ok)=>{err.textContent=m;err.hidden=!m;err.style.background=ok?"var(--accent-soft)":"";err.style.color=ok?"var(--ink)":""};
+  if(!cur)return show("Enter your current password.");
+  if(pw.length<8)return show("Choose a new password of at least 8 characters.");
+  if(pw!==$("pw-new2").value)return show("The two new passwords don't match.");
+  btn.disabled=true;show("");
+  try{await Server.call("password",{method:"POST",body:{current:cur,password:pw}});["pw-cur","pw-new","pw-new2"].forEach(i=>$(i).value="");show("Password changed.",true);toast("Password changed")}
+  catch(e){show(e.message||"Couldn't change the password.")}
+  btn.disabled=false;
+}
+
 /* ---------- writes ---------- */
 async function savePerson(p){if(S.db)await S.db.doc("people/"+p.id).set(p);S.people.set(p.id,p)}
 async function removePerson(id){
@@ -1247,6 +1344,7 @@ async function removePerson(id){
 }
 function writeError(e){
   const c=e&&e.code;
+  if(e&&e.status&&e.message)return e.message;
   if(c==="invalid_argument")return"You don't have permission to edit this chart. Ask the owner for Editor access.";
   if(c==="quota_exceeded")return"The chart is full. Remove someone before adding more.";
   if(c==="too_large")return"That image is too big. Use one under 20 MB.";
@@ -1307,6 +1405,7 @@ document.addEventListener("click",async e=>{
   if(t.hasAttribute("data-discard")){if(S.pendingHash){const h=S.pendingHash;S.pendingHash=null;if(S.draft)S.draft.dirty=false;location.hash=h;return}return closeDrawer(true)}
   if(t.dataset.pick)return openPicker(t.dataset.pick);
   if(t.hasAttribute("data-pk-close"))return closePicker();
+  if(t.hasAttribute("data-logout")){t.disabled=true;try{await Server.call("logout",{method:"POST"})}catch(_){}location.replace(location.pathname+location.search);return}
   if(t.hasAttribute("data-pk-upload"))return $("pk-file").click();
   if(t.dataset.pkId)return pickerChoose(t.dataset.pkId);
   if(t.hasAttribute("data-md-upload"))return $("md-file").click();
@@ -1395,6 +1494,8 @@ $("expand").addEventListener("click",()=>{
 document.addEventListener("submit",async e=>{
   e.preventDefault();if(S.busy)return;showErr("");
   if(e.target.id==="postform")return savePost(true);
+  if(e.target.id==="login-form")return doLogin();
+  if(e.target.id==="pw-form")return changePassword();
   if(e.target.id==="sform"){
     const c=S.draft;
     const teams=c.teams.map(t=>({name:String(t.name||"").trim(),color:hex(t.color)||"#5b6776"})).filter(t=>t.name);
@@ -1431,9 +1532,14 @@ render();
 
 /* ---------- live data ---------- */
 (async()=>{
-  const c=window.claude;
+  let c=window.claude&&window.claude.use?window.claude:null;
   const note=m=>{$("notice").textContent=m;$("notice").hidden=!m};
-  if(!c||!c.use){S.authChecked=true;return render()}
+  if(!c){
+    const d=await Server.detect();
+    if(d){S.server=true;if(d.error)S.serverError=d.error;else{Server.db=Server.makeDb();c=Server.claude}}
+  }
+  S.runtime=!!c;
+  if(!c){S.authChecked=true;return render()}
   const [db,user,assets]=await Promise.all([c.use("db"),c.use("user"),c.use("assets")]);
   S.assets=assets;
   if(user){try{S.canEdit=!!(await user.canEdit())}catch(_){S.canEdit=false}}else S.canEdit=!!db;
