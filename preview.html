@@ -59,9 +59,6 @@ h1{font-family:var(--display);font-weight:700;font-size:21px;margin:0;letter-spa
 .btn.danger.solid{background:var(--danger);color:var(--surface)}
 .btn.sm{padding:4px 9px;font-size:13px}
 
-.admin-bar{background:var(--accent-soft);border-bottom:1px solid var(--line);padding:8px 16px;font-size:13px}
-.admin-bar div{max-width:1400px;margin:0 auto}
-.admin-bar a{color:var(--accent)}
 .intro{max-width:1400px;width:100%;margin:0 auto;padding:14px 16px 0;display:flex;flex-direction:column;gap:8px}
 .intro p{margin:0;max-width:65ch;color:var(--ink-2)}
 .stats{display:flex;flex-wrap:wrap;gap:6px 16px;color:var(--ink-2);font-size:13px}
@@ -160,11 +157,22 @@ input[type=color]{width:40px;height:34px;padding:2px;border:1px solid var(--line
 .confirm{background:var(--danger-soft);border-radius:8px;padding:12px;display:flex;flex-direction:column;gap:10px;font-size:13px}
 .confirm div{display:flex;gap:8px;justify-content:flex-end}
 .toast{position:fixed;left:50%;bottom:calc(20px + env(safe-area-inset-bottom,0px));transform:translateX(-50%);background:var(--ink);color:var(--bg);padding:8px 14px;border-radius:8px;z-index:20;font-size:13px}
-.nav{display:flex;gap:2px;align-items:center}
-.nav a{padding:7px 12px;border-radius:8px;color:var(--ink-2);text-decoration:none;font-weight:500}
-.nav a:hover{color:var(--ink);background:var(--surface-2)}
-.nav a[aria-current="page"]{color:var(--ink);background:var(--surface);box-shadow:inset 0 0 0 1px var(--line)}
+.nav{display:flex;gap:10px;align-items:center}
+.nav a{display:inline-flex;align-items:center;gap:10px;padding:13px 24px;border-radius:999px;background:var(--accent);color:var(--accent-ink);text-decoration:none;font-family:var(--display);font-weight:700;font-size:17px;letter-spacing:.01em;box-shadow:0 2px 0 color-mix(in srgb,var(--accent) 55%,#000),0 8px 22px color-mix(in srgb,var(--accent) 35%,transparent);transition:transform .12s,box-shadow .12s}
+.nav a:hover{transform:translateY(-1px);box-shadow:0 3px 0 color-mix(in srgb,var(--accent) 55%,#000),0 12px 28px color-mix(in srgb,var(--accent) 45%,transparent)}
+.nav a:active{transform:translateY(1px)}
+.nav a svg{flex:none}
+.nav a .arr{transition:transform .12s}
+.nav a:hover .arr{transform:translateX(3px)}
 .blog{max-width:780px;width:100%;margin:0 auto;padding:22px 16px 48px;display:flex;flex-direction:column;gap:24px}
+.combined #blog-view{padding-bottom:8px}
+.combined .intro{border-top:1px solid var(--line);padding-top:28px;margin-top:8px}
+#team-intro{scroll-margin-top:84px}
+.sec-h{font-family:var(--display);font-size:22px;font-weight:700;margin:0;letter-spacing:-.01em}
+.blog-more{display:flex;justify-content:flex-end}
+.prow.has-th{grid-template-columns:112px 1fr 132px}
+.pthumb{display:block;align-self:start;border-radius:8px;overflow:hidden;aspect-ratio:4/3;max-width:100%;background:var(--surface-2)}
+.pthumb img{width:100%;height:100%;object-fit:cover;display:block}
 .blog-intro{margin:0;color:var(--ink-2);max-width:65ch;font-size:15px}
 .cats{display:flex;flex-wrap:wrap;gap:6px}
 .cats button{border:1px solid var(--line);background:var(--surface);border-radius:999px;padding:4px 12px;font-size:13px;color:var(--ink-2)}
@@ -239,7 +247,108 @@ input[type=color]{width:40px;height:34px;padding:2px;border:1px solid var(--line
 .media-card .play{width:40px;height:40px;border-radius:50%;background:var(--accent);color:var(--accent-ink);display:grid;place-items:center;flex:none;font-size:13px;padding-left:2px}
 .media-card>span:last-child{display:flex;flex-direction:column;min-width:0;line-height:1.35}
 .mc-url{font-size:12.5px;color:var(--ink-3);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
-@media (max-width:560px){.search input{width:100%}.search{flex:1 1 100%}.row2{grid-template-columns:1fr}dl{grid-template-columns:1fr}dt{padding-top:0}.prow{grid-template-columns:1fr}.pdate{padding-top:0}}
+@media (max-width:560px){.nav{flex:1 1 100%}.nav a{flex:1;justify-content:center;padding:14px 20px}.search input{width:100%}.search{flex:1 1 100%}.row2{grid-template-columns:1fr}dl{grid-template-columns:1fr}dt{padding-top:0}.prow,.prow.has-th{grid-template-columns:1fr}.pthumb{grid-row:1;aspect-ratio:16/8}.pdate{padding-top:0}}
+
+.admin-fab{position:fixed;right:16px;bottom:calc(16px + env(safe-area-inset-bottom,0px));z-index:8;display:inline-flex;align-items:center;gap:6px;padding:8px 13px;border-radius:999px;background:var(--ink);color:var(--bg);text-decoration:none;font-weight:600;font-size:13px;box-shadow:var(--shadow);opacity:.85}
+.admin-fab:hover{opacity:1}
+.in-admin header.top,.in-admin .intro,.in-admin main,.in-admin footer{display:none!important}
+.adm{display:grid;grid-template-columns:232px minmax(0,1fr);min-height:100vh;background:var(--bg)}
+.adm-side{position:sticky;top:0;height:100vh;display:flex;flex-direction:column;gap:18px;padding:18px 12px;background:var(--surface);border-right:1px solid var(--line)}
+.adm-brand{display:flex;gap:10px;align-items:center;color:var(--ink);text-decoration:none;padding:0 6px}
+.adm-brand .logo{width:34px;height:34px;border-radius:9px}
+.adm-brand span:last-child{display:flex;flex-direction:column;line-height:1.2;min-width:0}
+.adm-brand b{font-family:var(--display);font-size:14.5px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.adm-brand small{font-family:var(--mono);font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-3)}
+.adm-nav{display:flex;flex-direction:column;gap:2px}
+.adm-nav a,.adm-view{display:flex;align-items:center;gap:10px;padding:9px 10px;border-radius:8px;color:var(--ink-2);text-decoration:none;font-weight:500}
+.adm-nav a:hover,.adm-view:hover{background:var(--surface-2);color:var(--ink)}
+.adm-nav a[aria-current="page"]{background:var(--accent-soft);color:var(--accent)}
+.adm-count{margin-left:auto;font-style:normal;font-family:var(--mono);font-size:11px;background:var(--surface-2);color:var(--ink-2);border-radius:999px;padding:1px 7px}
+.adm-view{margin-top:auto;border-top:1px solid var(--line);border-radius:0;padding-top:14px}
+.adm-main{min-width:0;padding:24px 28px 60px;display:flex;flex-direction:column;gap:18px}
+.adm-main>*{width:100%;max-width:1040px}
+.adm-head{display:flex;justify-content:space-between;align-items:flex-end;gap:12px;flex-wrap:wrap}
+.adm-head h1{font-size:24px}
+.adm-head a.btn{color:var(--ink);text-decoration:none}
+.adm-head a.btn.primary{color:var(--accent-ink)}
+.adm-nav a span,.adm-view span{white-space:nowrap}
+.adm-back{color:var(--ink-2);text-decoration:none;font-size:13px;display:inline-block;margin-bottom:4px}
+.adm-back:hover{color:var(--ink)}
+.adm-h2{font-family:var(--display);font-size:15px;font-weight:600;margin:10px 0 0}
+#adm-body{display:flex;flex-direction:column;gap:14px}
+.adm-stats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px}
+.adm-stats a{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:14px 16px;text-decoration:none;color:var(--ink-2);display:flex;flex-direction:column;gap:2px}
+.adm-stats a:hover{border-color:var(--ink-3)}
+.adm-stats b{font-family:var(--display);font-size:26px;color:var(--ink);font-variant-numeric:tabular-nums}
+.adm-actions{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.adm-action{display:flex;gap:12px;align-items:flex-start;padding:14px 16px;background:var(--surface);border:1px solid var(--line);border-radius:10px;text-decoration:none;color:var(--ink)}
+.adm-action:hover{border-color:var(--accent)}
+.adm-action .ai{width:36px;height:36px;border-radius:9px;display:grid;place-items:center;background:var(--accent-soft);color:var(--accent);flex:none}
+.adm-action span:last-child{display:flex;flex-direction:column;gap:2px}
+.adm-action small{color:var(--ink-2);font-size:13px}
+.adm-card{background:var(--surface);border:1px solid var(--line);border-radius:10px;overflow-x:auto}
+.adm-table{min-width:560px}
+.adm-table td{padding:9px 14px}
+.adm-table tbody tr{cursor:pointer}
+.adm-table tbody tr:hover td{background:var(--surface-2)}
+.adm-act{text-align:right;white-space:nowrap}
+.adm-act .btn{margin-left:4px;text-decoration:none;color:var(--ink)}
+.adm-muted{color:var(--ink-3);font-size:13px}
+.adm-tree{color:var(--ink-3);margin-right:2px;font-family:var(--mono)}
+.adm-ptitle{display:flex;gap:10px;align-items:center}
+.adm-ptitle img,.adm-noimg{width:44px;height:32px;border-radius:5px;object-fit:cover;flex:none;background:var(--surface-2);display:grid;place-items:center;color:var(--ink-3)}
+.adm-ptitle span{display:flex;flex-direction:column}
+.adm-ptitle small.pin{font-size:10px}
+.pub{font-family:var(--mono);font-size:10.5px;letter-spacing:.05em;text-transform:uppercase;color:var(--accent);background:var(--accent-soft);padding:2px 7px;border-radius:4px}
+.adm-toolbar{display:flex;flex-wrap:wrap;gap:10px 16px;align-items:center}
+.adm-empty{padding:28px 16px;text-align:center;color:var(--ink-2);background:var(--surface);border:1px dashed var(--line);border-radius:10px}
+.adm-empty a{color:var(--accent)}
+.adm-note{margin:4px 0 0;color:var(--ink-3);font-size:12.5px;max-width:70ch}
+.adm-gate{min-height:100vh;display:grid;place-items:center;padding:24px 16px;text-align:center}
+.adm-gate>div{display:flex;flex-direction:column;align-items:center;gap:10px;max-width:420px}
+.adm-gate .logo{width:44px;height:44px}
+.adm-gate h2{font-family:var(--display);margin:4px 0 0}
+.adm-gate p{margin:0;color:var(--ink-2)}
+.adm-gate .btn{text-decoration:none;color:var(--ink)}
+.adm-form{background:var(--surface);border:1px solid var(--line);border-radius:12px;max-width:760px}
+.adm-form.wide{max-width:920px}
+.adm-form .db{overflow:visible;padding:22px}
+.adm-form .df{position:sticky;bottom:0;background:var(--surface);border-radius:0 0 12px 12px;z-index:2}
+.adm-drop{display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px 16px;align-items:center;padding:16px;border:2px dashed var(--line);border-radius:10px;background:var(--surface);color:var(--ink-2)}
+.adm-drop.drag,.pk-box.drag{border-color:var(--accent);background:var(--accent-soft)}
+.md-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:12px}
+.md-item{margin:0;background:var(--surface);border:1px solid var(--line);border-radius:10px;overflow:hidden;display:flex;flex-direction:column}
+.md-thumb{aspect-ratio:4/3;max-width:100%;background:var(--surface-2);display:grid;place-items:center;position:relative;overflow:hidden}
+.md-thumb img,.md-thumb video{width:100%;height:100%;object-fit:cover}
+.md-badge{position:absolute;left:8px;top:8px;background:var(--ink);color:var(--bg);font-size:11px;padding:1px 7px;border-radius:4px}
+.md-item figcaption{padding:10px 12px;display:flex;flex-direction:column;gap:4px;font-size:13px;min-width:0}
+.md-item figcaption b{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.md-item figcaption .btn{align-self:flex-start}
+.md-used{font-size:12px;color:var(--accent);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.md-confirm{display:flex;flex-wrap:wrap;gap:6px;align-items:center;font-size:12.5px;color:var(--danger)}
+.picker{position:fixed;inset:0;z-index:30;background:var(--scrim);display:grid;place-items:center;padding:16px}
+.pk-box{background:var(--surface);border-radius:12px;width:min(720px,100%);max-height:min(640px,calc(100vh - 32px));display:flex;flex-direction:column;overflow:hidden;border:2px solid transparent}
+.pk-bar{display:flex;flex-wrap:wrap;gap:8px 12px;align-items:center;padding:12px 18px;border-bottom:1px solid var(--line)}
+.pk-grid{padding:14px 18px 18px;overflow-y:auto;display:grid;grid-template-columns:repeat(auto-fill,minmax(130px,1fr));gap:10px}
+.pk-item{border:1px solid var(--line);background:var(--bg);border-radius:8px;padding:0;overflow:hidden;display:flex;flex-direction:column;text-align:left}
+.pk-item:hover,.pk-item:focus-visible{border-color:var(--accent)}
+.pk-item img{width:100%;aspect-ratio:1;object-fit:cover;display:block;max-width:100%}
+.pk-item span{font-size:12px;padding:5px 8px;color:var(--ink-2);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.pk-grid .adm-empty{grid-column:1/-1}
+@media (max-width:760px){
+  .adm{grid-template-columns:1fr}
+  .adm-side{position:sticky;top:0;z-index:5;height:auto;flex-direction:row;align-items:center;gap:8px;padding:8px 12px;border-right:0;border-bottom:1px solid var(--line);overflow-x:auto}
+  .adm-brand span:last-child{display:none}
+  .adm-nav{flex-direction:row}
+  .adm-nav a,.adm-view{padding:8px;flex-direction:column;gap:2px;font-size:11px}
+  .adm-count{display:none}
+  .adm-view{margin-top:0;border-top:0;padding-top:8px;margin-left:auto}
+  .adm-main{padding:18px 16px 60px}
+  .adm-stats{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .adm-actions{grid-template-columns:1fr}
+  .adm-form .db{padding:16px}
+  .adm-form .df{position:static}
+}
 @media (prefers-reduced-motion:reduce){*{transition:none!important}}
 </style>
 <style>html{height:100%}body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
@@ -253,7 +362,7 @@ input[type=color]{width:40px;height:34px;padding:2px;border:1px solid var(--line
       <span class="logo" id="logo" aria-hidden="true"></span>
       <div class="brand-txt"><span class="site" id="site-name">Acme Co.</span><h1 id="title">Organization chart</h1></div>
     </a>
-    <nav class="nav" id="nav" aria-label="Pages"><a id="nav-blog" href="#updates">Updates</a></nav>
+    <nav class="nav" id="nav" aria-label="Pages"><a id="nav-team" href="#team"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><circle cx="9" cy="8" r="3.5"/><path d="M2.5 20c.6-3.6 3.3-5.5 6.5-5.5s5.9 1.9 6.5 5.5"/><circle cx="17" cy="9" r="2.5"/><path d="M16.5 14.6c2.6.2 4.4 1.8 5 4.9"/></svg><span id="nav-team-t">Team</span><span class="arr" aria-hidden="true">→</span></a><a id="nav-blog" href="#updates"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 3h10l4 4v14H5z"/><path d="M9 11h6M9 15h6M9 7h3"/></svg><span id="nav-blog-t">Updates</span><span class="arr" aria-hidden="true">→</span></a></nav>
     <div class="tools" id="tools">
       <div class="search">
         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="M20 20l-3.5-3.5"></path></svg>
@@ -264,16 +373,12 @@ input[type=color]{width:40px;height:34px;padding:2px;border:1px solid var(--line
         <button id="v-dir" aria-pressed="false">Directory</button>
       </div>
       <button class="btn" id="expand">Collapse all</button>
-      <span id="admin-tools" class="inline" hidden>
-        <button class="btn" id="settings-btn">Settings</button>
-        <button class="btn primary" id="add-btn">+ Add person</button>
-        <button class="btn primary" id="newpost-btn">+ New post</button>
-      </span>
     </div>
   </div>
 </header>
-<div class="admin-bar" id="admin-bar" hidden><div><b>Admin mode.</b> Visitors never see these controls. <a href="#" id="admin-exit">Exit admin mode</a></div></div>
+<main id="blog-view" class="blog" hidden></main>
 <section class="intro" id="team-intro">
+  <h2 class="sec-h" id="team-h" hidden></h2>
   <p id="intro-text">Click anyone to see their profile.</p>
   <div class="stats" id="stats"></div>
   <div class="notice" id="notice" hidden></div>
@@ -282,10 +387,20 @@ input[type=color]{width:40px;height:34px;padding:2px;border:1px solid var(--line
   <div id="tree-view" class="chart-wrap"><div class="tree" id="tree"></div></div>
   <div id="dir-view" class="dir" hidden></div>
 </main>
-<main id="blog-view" class="blog" hidden></main>
 <footer><div id="footer-text">© Acme Co. · Sample content, replace in Settings</div></footer>
 <div class="scrim" id="scrim" hidden></div>
 <aside class="drawer" id="drawer" hidden aria-labelledby="dtitle"></aside>
+<a class="admin-fab" id="admin-fab" href="#admin" hidden><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 20h4L19 9l-4-4L4 16z"/><path d="M13.5 6.5l4 4"/></svg>Admin</a>
+<div class="adm" id="admin-app" hidden></div>
+<div class="picker" id="picker" hidden role="dialog" aria-modal="true" aria-labelledby="pk-title">
+  <div class="pk-box">
+    <div class="dh"><h2 id="pk-title">Choose an image</h2><button class="x" data-pk-close aria-label="Close">×</button></div>
+    <div class="pk-bar"><button type="button" class="btn primary" data-pk-upload>Upload new image</button><span class="hint" id="pk-msg">Or pick one you've already uploaded.</span></div>
+    <div class="pk-grid" id="pk-grid"></div>
+  </div>
+</div>
+<input type="file" id="pk-file" accept="image/png,image/jpeg,image/webp,image/gif,image/svg+xml" hidden>
+<input type="file" id="md-file" accept="image/png,image/jpeg,image/webp,image/gif,image/svg+xml,video/mp4,video/webm,video/quicktime" multiple hidden>
 <div class="toast" id="toast" hidden></div>
 
 <script>
@@ -303,13 +418,13 @@ const DEFAULTS={
   showStats:false, showTeams:false, showEmail:true, showLocation:true, showIntro:true,
   labelPerson:"person", labelPeople:"people", clickAction:"profile",
   showSearch:false, showViewToggle:false, showCollapse:false,
-  showBlog:true, navTeam:"Team", navBlog:"Updates", blogTitle:"Updates & announcements",
+  showBlog:true, homeLayout:"updates", navTeam:"Team", navBlog:"Updates", blogTitle:"Updates & announcements",
   blogIntro:"News, announcements and updates from the team.", categories:"Announcement, Update, News, Event"
 };
 const SAMPLE_POSTS=[{"author": "Alex Morgan", "body": "This is a placeholder post. Replace it with your own announcement.\n\nThis page is where we'll share **company news**, team updates and upcoming events. Check back here for the latest.\n\n## What you'll find here\n\n- Announcements about new people and roles\n- Monthly progress updates\n- Dates for team events", "category": "Announcement", "coverId": "", "date": "2026-09-28", "pinned": true, "title": "Welcome to our new team page", "updatedAt": "2026-09-28T12:00:00Z", "id": "b01"}, {"author": "Sam Rivera", "body": "Placeholder update. Summarize what the team worked on this month, what shipped and what's coming next.\n\n## Highlights\n\n- A milestone the team reached\n- A new partnership or customer\n- Something planned for next month", "category": "Update", "coverId": "", "date": "2026-09-20", "pinned": false, "title": "September progress update", "updatedAt": "2026-09-20T12:00:00Z", "id": "b02"}, {"author": "Taylor Brooks", "body": "Placeholder post. Introduce new hires here, with their role and the team they're joining.\n\nYou can find everyone on the *Team* page.", "category": "News", "coverId": "", "date": "2026-09-12", "pinned": false, "title": "Welcoming two new team members", "updatedAt": "2026-09-12T12:00:00Z", "id": "b03"}, {"author": "Drew Mensah", "body": "Placeholder event post. Add the date, time, place and anything people should bring.\n\n> Tip: pin a post to keep it at the top of the page.", "category": "Event", "coverId": "", "date": "2026-09-05", "pinned": false, "title": "Team get-together in October", "updatedAt": "2026-09-05T12:00:00Z", "id": "b04"}];
 const SAMPLE=[{"bio": "Placeholder profile. Replace with a real person.", "email": "alex.morgan@example.com", "link": "https://example.com/", "linkLabel": "View profile page", "location": "Accra", "managerId": "", "name": "Alex Morgan", "role": "Chief Executive Officer", "sort": 1, "team": "Leadership", "id": "p01"}, {"bio": "", "email": "jordan.lee@example.com", "location": "Remote", "managerId": "p01", "name": "Jordan Lee", "role": "Chief Technology Officer", "sort": 1, "team": "Engineering", "id": "p02"}, {"bio": "", "email": "sam.rivera@example.com", "location": "Accra", "managerId": "p01", "name": "Sam Rivera", "role": "Chief Operating Officer", "sort": 2, "team": "Operations", "id": "p03"}, {"bio": "", "email": "taylor.brooks@example.com", "location": "Lagos", "managerId": "p01", "name": "Taylor Brooks", "role": "Head of Marketing", "sort": 3, "team": "Marketing", "id": "p04"}, {"bio": "", "email": "casey.nguyen@example.com", "location": "Remote", "managerId": "p02", "name": "Casey Nguyen", "role": "Engineering Manager", "sort": 1, "team": "Engineering", "id": "p05"}, {"bio": "", "email": "riley.chen@example.com", "location": "Remote", "managerId": "p05", "name": "Riley Chen", "role": "Senior Software Engineer", "sort": 1, "team": "Engineering", "id": "p06"}, {"bio": "", "email": "morgan.patel@example.com", "location": "Accra", "managerId": "p05", "name": "Morgan Patel", "role": "Software Engineer", "sort": 2, "team": "Engineering", "id": "p07"}, {"bio": "", "email": "jamie.okafor@example.com", "location": "Accra", "managerId": "p02", "name": "Jamie Okafor", "role": "Product Designer", "sort": 2, "team": "Design", "id": "p08"}, {"bio": "", "email": "drew.mensah@example.com", "location": "Kumasi", "managerId": "p03", "name": "Drew Mensah", "role": "Operations Lead", "sort": 1, "team": "Operations", "id": "p09"}, {"bio": "", "email": "avery.kim@example.com", "location": "Accra", "managerId": "p03", "name": "Avery Kim", "role": "Finance Manager", "sort": 2, "team": "Finance", "id": "p10"}, {"bio": "", "email": "quinn.adeyemi@example.com", "location": "Lagos", "managerId": "p04", "name": "Quinn Adeyemi", "role": "Content Lead", "sort": 1, "team": "Marketing", "id": "p11"}, {"bio": "", "email": "parker.diaz@example.com", "location": "Remote", "managerId": "p04", "name": "Parker Diaz", "role": "Growth Marketer", "sort": 2, "team": "Marketing", "id": "p12"}];
 
-const S={people:new Map(),posts:new Map(),drafts:new Map(),cat:"",cfg:{...DEFAULTS},view:"tree",viewChosen:false,q:"",collapsed:new Set(),drawer:null,draft:null,canEdit:false,db:null,assets:null,busy:false};
+const S={mediaMeta:new Map(),media:null,admKey:null,admQ:"",admPostTab:"all",authChecked:false,live:{people:false,posts:false,drafts:false,cfg:false},people:new Map(),posts:new Map(),drafts:new Map(),cat:"",cfg:{...DEFAULTS},view:"tree",viewChosen:false,q:"",collapsed:new Set(),drawer:null,draft:null,canEdit:false,db:null,assets:null,busy:false};
 SAMPLE.forEach(p=>S.people.set(p.id,{...p}));
 SAMPLE_POSTS.forEach(p=>S.posts.set(p.id,{...p}));
 
@@ -330,18 +445,31 @@ function roots(){return [...S.people.values()].filter(p=>!p.managerId||!S.people
 function descendants(id){const out=new Set(),st=[id];while(st.length){const c=st.pop();for(const k of kids(c)){if(!out.has(k.id)){out.add(k.id);st.push(k.id)}}}return out}
 function matches(p){if(!S.q)return true;const q=S.q.toLowerCase();return [p.name,p.role,p.team,p.location].some(v=>String(v||"").toLowerCase().includes(q))}
 function route(){
-  const t=location.hash.replace(/^#/,"").split(".").filter(Boolean),admin=t.includes("admin"),r=t.find(x=>x!=="admin")||"";
-  if(!S.cfg.showBlog)return{page:"team",admin};
-  if(r==="updates")return{page:"blog",admin};
-  if(r.startsWith("post-"))return{page:"post",id:r.slice(5),admin};
-  return{page:"team",admin};
+  const t=location.hash.replace(/^#/,"").split(".").filter(Boolean);
+  if(t[0]==="admin"){
+    const x=t[1]||"home",i=x.indexOf("-");
+    return{page:"admin",sec:i>0?x.slice(0,i):x,id:i>0?x.slice(i+1):""};
+  }
+  if(t.includes("admin")){const r=t.find(x=>x!=="admin")||"";return r.startsWith("post-")?{page:"admin",sec:"post",id:r.slice(5)}:{page:"admin",sec:r==="updates"?"posts":"home",id:""}}
+  const r=t[0]||"",L=layout();
+  if(!S.cfg.showBlog)return{page:"team"};
+  if(r.startsWith("post-"))return{page:"post",id:r.slice(5)};
+  if(r==="updates")return{page:"blog"};
+  if(r==="team")return L==="combined"?{page:"home",anchor:"team"}:{page:"team"};
+  return{page:L==="combined"?"home":L==="chart"?"team":"blog"};
 }
-function isAdmin(){return S.canEdit&&route().admin}
-function href(page,id,forceAdmin){
-  const a=forceAdmin??isAdmin();const r=page==="blog"?"updates":page==="post"?"post-"+id:"";
-  return"#"+[r,a?"admin":""].filter(Boolean).join(".");
+function layout(){const l=S.cfg.homeLayout;return l==="combined"||l==="chart"?l:"updates"}
+function isAdmin(){return S.canEdit&&route().page==="admin"}
+function href(page,id){
+  const L=layout();
+  if(page==="post")return"#post-"+id;
+  if(page==="blog")return L==="updates"?"#":"#updates";
+  if(page==="team")return L==="chart"?"#":"#team";
+  return"#";
 }
-window.addEventListener("hashchange",()=>{S.drawer=null;S.draft=null;renderDrawer();render();window.scrollTo(0,0)});
+function navAdmin(sec){const h="#admin"+(sec?"."+sec:"");if(location.hash!==h)location.hash=h;else{S.admKey=null;S.drawer=null;S.draft=null;render()}}
+window.addEventListener("hashchange",()=>{S.drawer=null;S.draft=null;renderDrawer();render();scrollForRoute()});
+function scrollForRoute(){const rt=route();if(rt.anchor==="team")requestAnimationFrame(()=>{const e=$("team-intro");if(e)e.scrollIntoView({block:"start"})});else window.scrollTo(0,0)}
 /* formatting for post bodies */
 function inline(s){
   s=esc(s);
@@ -430,22 +558,28 @@ function applyBranding(){
 /* ---------- render ---------- */
 function render(){
   applyBranding();
-  const rt=route(),adm=isAdmin(),c=S.cfg,onTeam=rt.page==="team";
-  $("admin-tools").hidden=!adm;$("admin-bar").hidden=!adm;
-  $("admin-exit").href=href(rt.page,rt.id,false);
-  $("add-btn").hidden=!onTeam;$("newpost-btn").hidden=onTeam;
+  const rt=route(),c=S.cfg,inAdm=rt.page==="admin";
+  document.documentElement.classList.toggle("in-admin",inAdm);
+  $("admin-app").hidden=!inAdm;
+  $("admin-fab").hidden=inAdm||!S.canEdit;
+  $("admin-fab").href=rt.page==="post"?"#admin.post-"+rt.id:rt.page==="blog"?"#admin.posts":rt.page==="team"?"#admin.people":"#admin";
+  if(inAdm){$("drawer").hidden=true;$("scrim").hidden=true;return renderAdmin(rt)}
+  const L=layout(),onTeam=rt.page==="team",onHome=rt.page==="home",showChart=onTeam||onHome;
   $("nav").hidden=!c.showBlog;
-  $("nav-blog").textContent=c.navBlog||"Updates";
-  $("nav-blog").href=href("blog");$("brand").href=href("team");
-  $("nav-blog").toggleAttribute("aria-current",!onTeam);if(!onTeam)$("nav-blog").setAttribute("aria-current","page");
+  $("nav-team-t").textContent=c.navTeam||"Team";$("nav-blog-t").textContent=c.navBlog||"Updates";
+  $("nav-team").href=href("team");$("nav-blog").href=onTeam&&L==="updates"?"#":href("blog");$("brand").href="#";
+  $("nav-team").hidden=onTeam;$("nav-blog").hidden=!onTeam;
   const heading=onTeam?c.pageTitle:(c.blogTitle||c.navBlog);
   $("title").textContent=heading||"";
   document.title=[heading,c.siteName].filter(Boolean).join(" · ")||"Team Hierarchy Map";
-  $("team-intro").hidden=!onTeam;$("team-main").hidden=!onTeam;$("blog-view").hidden=onTeam;
-  $("q").parentElement.hidden=!(onTeam&&c.showSearch);
-  $("v-tree").parentElement.hidden=!(onTeam&&c.showViewToggle);
-  $("tools").hidden=!((onTeam&&(c.showSearch||c.showViewToggle||c.showCollapse))||adm);
-  if(!onTeam){$("expand").hidden=true;return rt.page==="post"?renderPost(rt.id):renderBlog()}
+  $("team-intro").hidden=!showChart;$("team-main").hidden=!showChart;$("blog-view").hidden=onTeam;
+  $("team-h").hidden=!onHome;$("team-h").textContent=c.pageTitle||"";
+  document.documentElement.classList.toggle("combined",onHome);
+  $("q").parentElement.hidden=!(showChart&&c.showSearch);
+  $("v-tree").parentElement.hidden=!(showChart&&c.showViewToggle);
+  $("tools").hidden=!(showChart&&(c.showSearch||c.showViewToggle||c.showCollapse));
+  if(!showChart){$("expand").hidden=true;return rt.page==="post"?renderPost(rt.id):renderBlog()}
+  if(onHome)renderBlog(true);
   renderTeam();
 }
 function renderTeam(){
@@ -503,9 +637,11 @@ function renderDir(){
 function postMeta(p){
   return `<div class="pmeta">${p.category?`<span class="cat">${esc(p.category)}</span>`:""}${p.date?`<span>${fmtDate(p.date)}</span>`:""}${p.author?`<span>by ${esc(p.author)}</span>`:""}</div>`;
 }
-function renderBlog(){
+function renderBlog(compact){
   const c=S.cfg,adm=isAdmin();
-  const all=[...S.posts.values()].sort(byDate);
+  let all=[...S.posts.values()].sort(byDate);
+  const total=all.length;
+  if(compact){const pin=all.find(p=>p.pinned);all=[...(pin?[pin]:[]),...all.filter(p=>p!==pin)].slice(0,4);S.cat=""}
   const cats=[...new Set(all.map(p=>p.category).filter(Boolean))];
   if(S.cat&&!cats.includes(S.cat))S.cat="";
   const list=S.cat?all.filter(p=>p.category===S.cat):all;
@@ -515,18 +651,19 @@ function renderBlog(){
   let h="";
   if(c.blogIntro)h+=`<p class="blog-intro">${esc(c.blogIntro)}</p>`;
   if(adm&&drafts.length)h+=`<section class="admin-section"><span class="lbl">Drafts · only editors can see these</span>${drafts.map(p=>`<div class="admin-row"><a class="more" href="${href("post",p.id)}">${esc(p.title||"Untitled")}</a><button class="btn sm" data-editpost="${esc(p.id)}">Edit</button></div>`).join("")}</section>`;
-  if(cats.length>1)h+=`<div class="cats" role="group" aria-label="Filter by category"><button data-cat="" aria-pressed="${!S.cat}">All</button>${cats.map(x=>`<button data-cat="${esc(x)}" aria-pressed="${S.cat===x}">${esc(x)}</button>`).join("")}</div>`;
+  if(!compact&&cats.length>1)h+=`<div class="cats" role="group" aria-label="Filter by category"><button data-cat="" aria-pressed="${!S.cat}">All</button>${cats.map(x=>`<button data-cat="${esc(x)}" aria-pressed="${S.cat===x}">${esc(x)}</button>`).join("")}</div>`;
   if(!list.length){h+=`<div class="empty">No posts yet.${adm?" Use “+ New post” to write the first one.":""}</div>`;$("blog-view").innerHTML=h;return}
   const fImg=feat&&(feat.coverId||firstImage(feat.body));
   if(feat)h+=`<article class="feature">${fImg?`<div class="cover"><img src="${esc(blob(fImg))}" alt=""></div>`:""}<div class="fb"><span class="pin">Pinned</span>${postMeta(feat)}<h2 class="ptitle"><a href="${href("post",feat.id)}">${esc(feat.title)}</a></h2><p class="pex">${esc(excerpt(feat.body,260))}</p><div class="admin-row"><a class="more" href="${href("post",feat.id)}">Read more →</a>${adm?`<button class="btn sm" data-editpost="${esc(feat.id)}">Edit</button>`:""}</div></div></article>`;
-  if(rest.length)h+=`<div class="plist">${rest.map(p=>`<article class="prow"><div class="pdate">${fmtDate(p.date)}</div><div class="pbody"><div class="pmeta">${p.category?`<span class="cat">${esc(p.category)}</span>`:""}${p.author?`<span>by ${esc(p.author)}</span>`:""}</div><h2 class="ptitle"><a href="${href("post",p.id)}">${esc(p.title)}</a></h2><p class="pex">${esc(excerpt(p.body))}</p><div class="admin-row"><a class="more" href="${href("post",p.id)}">Read more →</a>${adm?`<button class="btn sm" data-editpost="${esc(p.id)}">Edit</button>`:""}</div></div></article>`).join("")}</div>`;
+  if(rest.length)h+=`<div class="plist">${rest.map(p=>{const th=p.coverId||firstImage(p.body);return`<article class="prow${th?" has-th":""}"><div class="pdate">${fmtDate(p.date)}</div><div class="pbody"><div class="pmeta">${p.category?`<span class="cat">${esc(p.category)}</span>`:""}${p.author?`<span>by ${esc(p.author)}</span>`:""}</div><h2 class="ptitle"><a href="${href("post",p.id)}">${esc(p.title)}</a></h2><p class="pex">${esc(excerpt(p.body))}</p><div class="admin-row"><a class="more" href="${href("post",p.id)}">Read more →</a>${adm?`<button class="btn sm" data-editpost="${esc(p.id)}">Edit</button>`:""}</div></div>${th?`<a class="pthumb" href="${href("post",p.id)}" tabindex="-1" aria-hidden="true"><img src="${esc(blob(th))}" alt="" loading="lazy"></a>`:""}</article>`}).join("")}</div>`;
+  if(compact)h+=`<div class="blog-more"><a class="more" href="#updates">All ${esc((c.navBlog||"updates").toLowerCase())} →</a></div>`;
   $("blog-view").innerHTML=h;
 }
 function renderPost(id){
   const adm=isAdmin();
-  const isDraft=!S.posts.has(id)&&adm&&S.drafts.has(id);
+  const isDraft=!S.posts.has(id)&&S.canEdit&&S.drafts.has(id);
   const p=S.posts.get(id)||(isDraft?S.drafts.get(id):null);
-  const back=`<a class="back" href="${href("blog")}">← All ${esc((S.cfg.navBlog||"updates").toLowerCase())}</a>`;
+  const back=`<a class="back" href="${layout()==="combined"?"#":href("blog")}">← All ${esc((S.cfg.navBlog||"updates").toLowerCase())}</a>`;
   if(!p){$("blog-view").innerHTML=`${back}<div class="empty">This post isn't available. It may have been removed.</div>`;return}
   document.title=[p.title,S.cfg.siteName].filter(Boolean).join(" · ");
   $("blog-view").innerHTML=`<article class="post">${back}
@@ -534,22 +671,24 @@ function renderPost(id){
     <div class="inline">${isDraft?`<span class="dtag">Draft</span>`:""}${postMeta(p)}</div>
     <h2 class="post-title">${esc(p.title)}</h2>
     <div class="prose">${md(p.body)}</div>
-    ${adm?`<div><button class="btn" data-editpost="${esc(p.id)}">Edit this post</button></div>`:""}
   </article>`;
 }
 
 /* ---------- drawer ---------- */
-function openDrawer(d){S.busy=false;S.drawer=d;S.draft=null;renderDrawer();render()}
-function closeDrawer(force){if(!force&&edDirty()){const c=$("discard-confirm");if(c){c.hidden=false;c.scrollIntoView({block:"nearest"});return}}S.busy=false;S.drawer=null;S.draft=null;S.lp=null;renderDrawer();render()}
+function adminHashFor(d){return"#admin."+(d.mode==="edit"?"person-"+d.id:d.mode==="new"?"newperson"+(d.managerId?"-"+d.managerId:""):d.mode==="post"?(d.isNew?"newpost":"post-"+d.id):"settings")}
+function openDrawer(d){if(route().page==="admin"&&d.mode!=="view"){location.hash=adminHashFor(d);return}S.busy=false;S.drawer=d;S.draft=null;renderDrawer();render()}
+function closeDrawer(force){if(!force&&edDirty()){const c=$("discard-confirm");if(c){c.hidden=false;c.scrollIntoView({block:"nearest"});return}}S.busy=false;S.lp=null;
+  const rt=route();if(rt.page==="admin"){S.drawer=null;S.draft=null;if(rt.sec==="settings")return navAdmin("settings");return navAdmin(/^(post|newpost)$/.test(rt.sec)?"posts":"people")}
+  S.drawer=null;S.draft=null;renderDrawer();render()}
 function showErr(msg){const e=$("ferr");if(e){e.textContent=msg;e.hidden=!msg}}
 function setBusy(b,label){S.busy=b;const s=$("submit");if(s){s.disabled=b;if(label)s.textContent=label}}
 
 function renderDrawer(){
-  const d=S.drawer,el=$("drawer");
-  el.hidden=!d;$("scrim").hidden=!d;
-  el.classList.toggle("wide",!!d&&d.mode==="post");
+  const d=S.drawer,inAdm=route().page==="admin",el=inAdm?$("adm-form"):$("drawer");
+  if(inAdm){$("drawer").hidden=true;$("scrim").hidden=true;if(!el)return}
+  else{el.hidden=!d;$("scrim").hidden=!d;el.classList.toggle("wide",!!d&&d.mode==="post")}
   if(!d){el.innerHTML="";return}
-  const head=t=>`<div class="dh"><h2 id="dtitle">${t}</h2><button class="x" data-close aria-label="Close">×</button></div>`;
+  const head=t=>inAdm?"":`<div class="dh"><h2 id="dtitle">${t}</h2><button class="x" data-close aria-label="Close">×</button></div>`;
   const errBox=`<div class="err" id="ferr" hidden></div>`;
   if(d.mode==="view"){
     const p=S.people.get(d.id);if(!p){S.drawer=null;return renderDrawer()}
@@ -586,10 +725,10 @@ function renderDrawer(){
           <div class="field" id="lt-wrap"><label for="s-ltext">Logo letters</label><input id="s-ltext" data-k="logoText" maxlength="3" value="${esc(c.logoText)}"></div>
           <div class="field"><label for="s-lcol">Logo color</label><div class="inline"><input type="color" id="s-lcol" data-k="logoColor" value="${esc(hex(c.logoColor)||"#0f6e6a")}"></div></div>
         </div>
-        ${up?`<div class="field" id="li-wrap"><span class="lbl">Logo image</span><div class="inline"><span class="btn sm filebtn">Upload image<input type="file" id="s-lfile" accept="image/png,image/jpeg,image/svg+xml,image/webp,image/gif" aria-label="Upload logo image"></span><span class="hint">Square PNG or SVG works best. Also used as the tab icon.</span></div></div>`:""}
+        ${up?`<div class="field" id="li-wrap"><span class="lbl">Logo image</span><div class="inline"><button type="button" class="btn sm" data-pick="logo">Choose logo image</button><span class="hint">Square PNG or SVG works best. Also used as the tab icon.</span></div></div>`:""}
       </fieldset>
       <fieldset><legend>Text</legend>
-        <div class="field"><label for="s-title">Chart page heading</label><input id="s-title" data-k="pageTitle" maxlength="80" value="${esc(c.pageTitle)}"></div>
+        <div class="field"><label for="s-title">Team chart heading</label><input id="s-title" data-k="pageTitle" maxlength="80" value="${esc(c.pageTitle)}"></div>
         <div class="field"><label for="s-intro">Intro text</label><textarea id="s-intro" data-k="intro" maxlength="400">${esc(c.intro)}</textarea></div>
         <div class="field"><label for="s-foot">Footer text</label><textarea id="s-foot" data-k="footer" maxlength="300">${esc(c.footer)}</textarea></div>
         <div class="row2">
@@ -602,12 +741,21 @@ function renderDrawer(){
         <div class="field"><label for="s-click">When someone clicks a box</label><select id="s-click" data-k="clickAction"><option value="profile" ${c.clickAction!=="link"?"selected":""}>Open their profile</option><option value="link" ${c.clickAction==="link"?"selected":""}>Go to their link (if they have one)</option></select><span class="hint">Links open in a new tab. People without a link still open their profile.</span></div>
         <div class="field"><label for="s-view">Opening view</label><select id="s-view" data-k="defaultView"><option value="tree" ${c.defaultView!=="dir"?"selected":""}>Chart</option><option value="dir" ${c.defaultView==="dir"?"selected":""}>Directory</option></select></div>
       </fieldset>
-      <fieldset><legend>Updates page</legend>
-        <label class="check"><input type="checkbox" id="s-showBlog" data-k="showBlog" ${c.showBlog?"checked":""}> Show the updates page and page links</label>
-        <div class="field"><label for="s-navb">Link name for updates</label><input id="s-navb" data-k="navBlog" maxlength="24" value="${esc(c.navBlog)}"><span class="hint">Clicking the logo or site name returns to the chart.</span></div>
-        <div class="field"><label for="s-btitle">Updates page heading</label><input id="s-btitle" data-k="blogTitle" maxlength="80" value="${esc(c.blogTitle)}"></div>
-        <div class="field"><label for="s-bintro">Updates page intro</label><textarea id="s-bintro" data-k="blogIntro" maxlength="400">${esc(c.blogIntro)}</textarea></div>
+      <fieldset><legend>Pages</legend>
+        <div class="field"><label for="s-home">Home page</label><select id="s-home" data-k="homeLayout">
+          <option value="updates" ${c.homeLayout!=="combined"&&c.homeLayout!=="chart"?"selected":""}>Updates first, team chart on its own page</option>
+          <option value="combined" ${c.homeLayout==="combined"?"selected":""}>One page: updates on top, team chart below</option>
+          <option value="chart" ${c.homeLayout==="chart"?"selected":""}>Team chart first, updates on their own page</option>
+        </select></div>
+        <label class="check"><input type="checkbox" id="s-showBlog" data-k="showBlog" ${c.showBlog?"checked":""}> Show updates (turn off to show only the team chart)</label>
+        <div class="row2">
+          <div class="field"><label for="s-navt">Link name for the team chart</label><input id="s-navt" data-k="navTeam" maxlength="24" value="${esc(c.navTeam)}"></div>
+          <div class="field"><label for="s-navb">Link name for updates</label><input id="s-navb" data-k="navBlog" maxlength="24" value="${esc(c.navBlog)}"></div>
+        </div>
+        <div class="field"><label for="s-btitle">Updates heading</label><input id="s-btitle" data-k="blogTitle" maxlength="80" value="${esc(c.blogTitle)}"></div>
+        <div class="field"><label for="s-bintro">Updates intro</label><textarea id="s-bintro" data-k="blogIntro" maxlength="400">${esc(c.blogIntro)}</textarea></div>
         <div class="field"><label for="s-cats">Post categories</label><input id="s-cats" data-k="categories" maxlength="300" value="${esc(c.categories)}"><span class="hint">Separate with commas. You can also type a new one when writing a post.</span></div>
+        <span class="hint">Clicking the logo or site name always goes to the home page.</span>
       </fieldset>
       <fieldset><legend>Teams</legend>
         <div id="team-list" class="reports"></div>
@@ -638,7 +786,7 @@ function renderDrawer(){
       <div class="field"><label for="f-pauthor">Author</label><input id="f-pauthor" list="author-list" maxlength="80" value="${esc(src.author)}" placeholder="Optional"><datalist id="author-list">${names.map(x=>`<option value="${esc(x)}">`).join("")}</datalist></div>
       <div class="field"><span class="lbl">Cover image</span>
         <div class="cv-prev${src.coverId?"":" empty"}" id="cv-prev">${src.coverId?`<img src="${esc(blob(src.coverId))}" alt="">`:"No cover image"}</div>
-        ${S.assets?`<div class="inline"><span class="btn sm filebtn">Upload cover<input type="file" id="f-cover" accept="image/png,image/jpeg,image/webp,image/gif" aria-label="Upload cover image"></span><button type="button" class="btn sm" id="cv-clear" ${src.coverId?"":"hidden"}>Remove cover</button><span class="hint">Wide images work best.</span></div>`:""}
+        ${S.assets?`<div class="inline"><button type="button" class="btn sm" data-pick="cover">Choose cover image</button><button type="button" class="btn sm" id="cv-clear" ${src.coverId?"":"hidden"}>Remove cover</button><span class="hint">Wide images work best.</span></div>`:""}
       </div>
       <div class="field"><span class="lbl" id="pbody-lbl">Post</span>${editorHtml(src.body)}</div>
       <label class="check"><input type="checkbox" id="f-ppin" ${src.pinned?"checked":""}> Pin to the top of the page</label>
@@ -660,7 +808,7 @@ function renderDrawer(){
   const k=isNew?[]:kids(p.id),mgr=S.people.get(p.managerId);
   el.innerHTML=head(isNew?"Add person":"Edit "+esc(p.name))+`<form class="db" id="pform" novalidate>
     <div class="preview" style="${tcs(p.team)}" id="ph-wrap"><span class="av" id="ph-prev">${avatar(p)}</span>
-      <div class="inline">${S.assets?`<span class="btn sm filebtn">Upload photo<input type="file" id="f-photo" accept="image/png,image/jpeg,image/webp,image/gif" aria-label="Upload photo"></span><button type="button" class="btn sm" id="ph-clear" ${p.photoId?"":"hidden"}>Remove photo</button>`:`<span class="hint">Initials are shown when there's no photo.</span>`}</div></div>
+      <div class="inline">${S.assets?`<button type="button" class="btn sm" data-pick="photo">Choose photo</button><button type="button" class="btn sm" id="ph-clear" ${p.photoId?"":"hidden"}>Remove photo</button>`:`<span class="hint">Initials are shown when there's no photo.</span>`}</div></div>
     <div class="field"><label for="f-name">Full name</label><input id="f-name" maxlength="80" value="${esc(p.name)}" placeholder="e.g. Ama Owusu"></div>
     <div class="field"><label for="f-role">Job title</label><input id="f-role" maxlength="80" value="${esc(p.role)}" placeholder="e.g. Product Manager"></div>
     <div class="row2">
@@ -691,7 +839,6 @@ function syncLogoPrev(){
   const lp=$("logo-prev");if(lp)lp.innerHTML=logoHtml(c);
   const ps=$("prev-site");if(ps)ps.textContent=c.siteName;
   const lt=$("lt-wrap");if(lt)lt.hidden=c.logoMode!=="monogram";
-  const li=$("li-wrap");if(li)li.hidden=c.logoMode!=="image";
 }
 
 
@@ -729,8 +876,7 @@ function editorHtml(body){
     </div>
     <textarea id="f-pbody" aria-labelledby="pbody-lbl" maxlength="60000" placeholder="Write your post here. Use the toolbar above to add headings, bold text, links, images and more.">${esc(body)}</textarea>
     <div class="prose ed-preview" id="ed-preview" hidden></div>
-    <div class="ed-status"><span id="ed-msg">${up?"Tip: paste or drag an image straight into the text.":"Tip: select text, then click B or the link icon."}</span><span id="ed-count"></span></div>
-    <input type="file" id="ed-imgfile" accept="image/png,image/jpeg,image/webp,image/gif" hidden>
+    <div class="ed-status"><span id="ed-msg">${up?"Tip: use the image button, or paste or drag an image into the text.":"Tip: select text, then click B or the link icon."}</span><span id="ed-count"></span></div>
     <input type="file" id="ed-vidfile" accept="video/mp4,video/webm,video/quicktime" hidden>
   </div>
   <details class="ed-help"><summary>Formatting help</summary>
@@ -813,7 +959,10 @@ function doLinkInsert(){
     t.setSelectionRange(lp.e,lp.e);insertBlock(url);return;
   }
   if(lp.mode==="button"){t.setSelectionRange(lp.e,lp.e);insertBlock(`[${text||"Learn more"}](${url}){button}`);return}
-  const shown=text||url;replaceRange(lp.s,lp.e,`[${shown}](${url})`);
+  const shown=text||url;
+  const v=t.value,ls=v.lastIndexOf("\n",lp.s-1)+1,le0=v.indexOf("\n",lp.s),le=le0<0?v.length:le0,line=v.slice(ls,le);
+  if(RX.img.test(line)||RX.vid.test(line)||RX.btn.test(line)){t.setSelectionRange(le,le);insertBlock(`[${shown}](${url})`);return}
+  replaceRange(lp.s,lp.e,`[${shown}](${url})`);
   t.setSelectionRange(lp.s+1,lp.s+1+shown.length);
 }
 async function uploadMedia(file,kind){
@@ -852,7 +1001,7 @@ function edFormat(f){
     case"link":return openLinkPop("link");
     case"button":return openLinkPop("button");
     case"embed":return openLinkPop("embed");
-    case"image":return $("ed-imgfile").click();
+    case"image":{S.edPos=ta().selectionEnd;return openPicker("editor")}
     case"video":return $("ed-vidfile").click();
   }
 }
@@ -882,6 +1031,197 @@ function edKeydown(e){
 }
 function edDirty(){return S.drawer&&S.drawer.mode==="post"&&S.draft&&S.draft.dirty}
 
+/* ---------- admin dashboard ---------- */
+const AI={
+  home:'<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" aria-hidden="true"><path d="M3 11l9-7 9 7v9a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z"/></svg>',
+  people:'<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="9" cy="8" r="3.5"/><path d="M2.5 20c.6-3.6 3.3-5.5 6.5-5.5s5.9 1.9 6.5 5.5"/><circle cx="17" cy="9" r="2.5"/><path d="M16.5 14.6c2.6.2 4.4 1.8 5 4.9"/></svg>',
+  posts:'<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 3h10l4 4v14H5z"/><path d="M9 11h6M9 15h6M9 7h3"/></svg>',
+  media:'<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="2"/><circle cx="9" cy="10" r="2"/><path d="M21 17l-5-5-9 8"/></svg>',
+  settings:'<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 7h10M18 7h2M4 17h2M10 17h10"/><circle cx="16" cy="7" r="2"/><circle cx="8" cy="17" r="2"/></svg>',
+  site:'<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 4h6v6M20 4l-9 9M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5"/></svg>'
+};
+function admSection(sec){return({person:"people",newperson:"people",post:"posts",newpost:"posts"})[sec]||sec}
+function fmtSize(b){b=+b||0;return b>=1048576?(b/1048576).toFixed(1)+" MB":b>=1024?Math.round(b/1024)+" KB":b+" B"}
+function allPosts(){return [...[...S.posts.values()].map(p=>({...p,status:"published"})),...[...S.drafts.values()].filter(p=>!S.posts.has(p.id)).map(p=>({...p,status:"draft"}))].sort(byDate)}
+function orderedPeople(){const out=[],seen=new Set();const walk=(p,d)=>{if(seen.has(p.id))return;seen.add(p.id);out.push([p,d]);kids(p.id).forEach(k=>walk(k,d+1))};roots().forEach(r=>walk(r,0));[...S.people.values()].forEach(p=>{if(!seen.has(p.id))out.push([p,0])});return out}
+function mediaUsage(){
+  const u=new Map(),add=(id,label)=>{if(!id)return;if(!u.has(id))u.set(id,[]);u.get(id).push(label)};
+  S.people.forEach(p=>add(p.photoId,p.name+"'s photo"));
+  allPosts().forEach(p=>{add(p.coverId,"Cover of “"+p.title+"”");parse(p.body).forEach(b=>{if(b.t==="img"||b.t==="vid")add(b.id,"In “"+p.title+"”")})});
+  if(S.cfg.logoImageId)add(S.cfg.logoImageId,"Site logo");
+  return u;
+}
+async function loadMedia(force){
+  if(!S.assets)return;
+  if(S.media&&!force)return;
+  try{S.media=await S.assets.list()}catch(_){S.media={assets:[],usage:null,error:true}}
+}
+function adminReady(){return !S.db||(S.live.people&&S.live.posts&&S.live.drafts&&S.live.cfg)}
+function renderAdmin(rt){
+  const app=$("admin-app");
+  document.title="Admin · "+(S.cfg.siteName||"Site");
+  const gate=(t,m)=>{S.admKey=null;app.innerHTML=`<div class="adm-gate"><div><span class="logo">${logoHtml(S.cfg)}</span><h2>${t}</h2><p>${m}</p><a class="btn" href="#">← Back to the site</a></div></div>`};
+  if(!window.claude||!window.claude.use)return gate("Admin isn't available here","The admin area only works on the live site, for the owner and people with Editor access.");
+  if(!S.authChecked||(S.canEdit&&!adminReady()))return gate("Loading…","Getting your site's content.");
+  if(!S.canEdit)return gate("You don't have access","Only the site owner and people with Editor access can open the admin area. Ask the owner to give you Editor access from the Share menu.");
+  const key=location.hash,sec=rt.sec,formSec=/^(person|newperson|post|newpost|settings)$/.test(sec);
+  if(S.admKey===key&&$("adm-body")){
+    if(formSec&&$("adm-form")&&$("adm-form").childElementCount)return;
+    return renderAdminBody();
+  }
+  S.admKey=key;S.mdDel=null;S.mdMsg="";
+  const cur=admSection(sec),nav=[["home","Overview",""],["people","People","people"],["posts","Posts","posts"],["media","Media","media"],["settings","Settings","settings"]];
+  const drafts=allPosts().filter(p=>p.status==="draft").length;
+  app.innerHTML=`<aside class="adm-side">
+      <a class="adm-brand" href="#admin"><span class="logo">${logoHtml(S.cfg)}</span><span><b>${esc(S.cfg.siteName||"Your site")}</b><small>Admin</small></span></a>
+      <nav class="adm-nav" aria-label="Admin sections">${nav.map(([k,l,h])=>`<a href="#admin${h?"."+h:""}" ${cur===k?'aria-current="page"':""}>${AI[k]}<span>${l}</span>${k==="posts"&&drafts?`<em class="adm-count" title="Drafts">${drafts}</em>`:""}</a>`).join("")}</nav>
+      <a class="adm-view" href="#">${AI.site}<span>View site</span></a>
+    </aside>
+    <section class="adm-main"><header class="adm-head" id="adm-head"></header><div id="adm-body"></div></section>`;
+  renderAdminHead(rt);renderAdminBody();
+  window.scrollTo(0,0);
+}
+function renderAdminHead(rt){
+  const h=$("adm-head");if(!h)return;const sec=rt.sec;
+  const back=(to,l)=>`<a class="adm-back" href="#admin.${to}">← ${l}</a>`;
+  let t="",act="",crumb="";
+  if(sec==="home"){t="Overview"}
+  else if(sec==="people"){t="People";act=`<a class="btn primary" href="#admin.newperson">+ Add person</a>`}
+  else if(sec==="person"){crumb=back("people","People");const p=S.people.get(rt.id);t=p?"Edit "+esc(p.name):"Person not found"}
+  else if(sec==="newperson"){crumb=back("people","People");t="Add a person"}
+  else if(sec==="posts"){t="Posts";act=`<a class="btn primary" href="#admin.newpost">+ New post</a>`}
+  else if(sec==="post"){crumb=back("posts","Posts");const p=S.posts.get(rt.id)||S.drafts.get(rt.id);t=p?"Edit post":"Post not found";if(S.posts.has(rt.id))act=`<a class="btn" href="#post-${esc(rt.id)}">View on site ${EXT}</a>`}
+  else if(sec==="newpost"){crumb=back("posts","Posts");t="New post"}
+  else if(sec==="media"){t="Media library";act=S.assets?`<button type="button" class="btn primary" data-md-upload>Upload files</button>`:""}
+  else if(sec==="settings"){t="Settings"}
+  else{t="Not found"}
+  h.innerHTML=`<div>${crumb}<h1>${t}</h1></div><div class="inline">${act}</div>`;
+}
+function renderAdminBody(){
+  const rt=route(),b=$("adm-body");if(!b||rt.page!=="admin")return;
+  const sec=rt.sec;
+  if(sec==="home"){
+    const posts=allPosts(),pub=posts.filter(p=>p.status==="published").length,dr=posts.length-pub;
+    const mcount=S.media?S.media.assets.length:S.mediaMeta.size;
+    const card=(h,icon,title,desc)=>`<a class="adm-action" href="${h}"><span class="ai">${icon}</span><span><b>${title}</b><small>${desc}</small></span></a>`;
+    b.innerHTML=`<div class="adm-stats">
+        <a href="#admin.people"><b>${S.people.size}</b><span>People on the chart</span></a>
+        <a href="#admin.posts"><b>${pub}</b><span>Published posts</span></a>
+        <a href="#admin.posts"><b>${dr}</b><span>Drafts</span></a>
+        <a href="#admin.media"><b>${mcount}</b><span>Images &amp; videos</span></a>
+      </div>
+      <h2 class="adm-h2">What would you like to do?</h2>
+      <div class="adm-actions">
+        ${card("#admin.newpost",AI.posts,"Write a post","News, an update or an announcement, with images and links")}
+        ${card("#admin.newperson",AI.people,"Add a person","Put someone new on the chart")}
+        ${card("#admin.media",AI.media,"Upload images","Add photos and videos to your library")}
+        ${card("#admin.settings",AI.settings,"Change logo & text","Site name, logo, colors, headings and footer")}
+      </div>
+      <h2 class="adm-h2">Recent posts</h2>
+      ${posts.length?`<div class="adm-card"><table class="adm-table"><tbody>${posts.slice(0,5).map(p=>`<tr data-go="#admin.post-${esc(p.id)}" tabindex="0"><td><b>${esc(p.title||"Untitled")}</b></td><td>${statusPill(p)}</td><td class="adm-muted">${fmtDate(p.date)}</td><td class="adm-act"><a class="btn sm" href="#admin.post-${esc(p.id)}">Edit</a></td></tr>`).join("")}</tbody></table></div>`:`<div class="adm-empty">No posts yet. <a href="#admin.newpost">Write your first post</a>.</div>`}
+      <p class="adm-note">Changes save as soon as you click Save or Publish, and show on the site right away. Visitors never see this admin area.</p>`;
+    return;
+  }
+  if(sec==="people"){
+    b.innerHTML=`<div class="adm-toolbar"><div class="search"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="M20 20l-3.5-3.5"></path></svg><input id="adm-q" type="search" placeholder="Search people" aria-label="Search people" value="${esc(S.admQ)}"></div><span class="adm-muted">${S.people.size} people · indented names show who reports to whom</span></div><div class="adm-card" id="adm-list"></div>`;
+    renderPeopleList();return;
+  }
+  if(sec==="posts"){
+    const posts=allPosts(),tab=S.admPostTab,list=posts.filter(p=>tab==="all"||p.status===(tab==="drafts"?"draft":"published"));
+    const n={all:posts.length,published:posts.filter(p=>p.status==="published").length,drafts:posts.filter(p=>p.status==="draft").length};
+    b.innerHTML=`<div class="adm-toolbar"><div class="seg" role="group" aria-label="Filter posts">${[["all","All"],["published","Published"],["drafts","Drafts"]].map(([k,l])=>`<button type="button" data-ptab="${k}" aria-pressed="${tab===k}">${l} <span class="adm-muted">${n[k]}</span></button>`).join("")}</div></div>
+      ${list.length?`<div class="adm-card"><table class="adm-table"><thead><tr><th>Title</th><th>Status</th><th>Category</th><th>Date</th><th></th></tr></thead><tbody>${list.map(p=>{const img=p.coverId||firstImage(p.body);return`<tr data-go="#admin.post-${esc(p.id)}" tabindex="0"><td><span class="adm-ptitle">${img?`<img src="${esc(blob(img))}" alt="">`:`<span class="adm-noimg">${AI.posts}</span>`}<span><b>${esc(p.title||"Untitled")}</b>${p.pinned?`<small class="pin">Pinned</small>`:""}</span></span></td><td>${statusPill(p)}</td><td>${p.category?`<span class="cat">${esc(p.category)}</span>`:""}</td><td class="adm-muted">${fmtDate(p.date)}</td><td class="adm-act"><a class="btn sm" href="#admin.post-${esc(p.id)}">Edit</a>${p.status==="published"?`<a class="btn sm" href="#post-${esc(p.id)}">View</a>`:""}</td></tr>`}).join("")}</tbody></table></div>`:`<div class="adm-empty">${tab==="drafts"?"No drafts.":"No posts yet."} <a href="#admin.newpost">Write a post</a>.</div>`}`;
+    return;
+  }
+  if(sec==="media"){
+    if(!S.assets){b.innerHTML=`<div class="adm-empty">Uploading isn't available in this view.</div>`;return}
+    if(!S.media){b.innerHTML=`<div class="adm-empty">Loading your files…</div>`;loadMedia().then(()=>{if(route().sec==="media")renderAdminBody()});return}
+    const use=mediaUsage(),items=[...S.media.assets].reverse(),u=S.media.usage;
+    b.innerHTML=`<div class="adm-drop" id="md-drop"><div><b>Drag images or videos here</b>, or <button type="button" class="linkish" data-md-upload>choose files</button>. Images: PNG, JPG, WebP, GIF, SVG. Videos: MP4 or WebM, up to 20 MB each.</div><div class="adm-muted" id="md-msg"${S.mdMsg?' style="color:var(--danger)"':""}>${S.mdMsg?esc(S.mdMsg):u?`${u.files} file${u.files===1?"":"s"} · ${fmtSize(u.bytes)} of ${fmtSize(u.maxBytes)} used`:""}</div></div>
+      ${items.length?`<div class="md-grid">${items.map(a=>{const m=S.mediaMeta.get(a.id)||{},used=use.get(a.id)||[],isV=/^video\//.test(a.contentType),isI=/^image\//.test(a.contentType);return`<figure class="md-item">
+        <div class="md-thumb">${isI?`<img src="${esc(blob(a.id))}" alt="" loading="lazy">`:isV?`<video src="${esc(blob(a.id))}" muted preload="metadata"></video><span class="md-badge">Video</span>`:`<span class="adm-muted">File</span>`}</div>
+        <figcaption><b title="${esc(m.name||"")}">${esc(m.name||(isV?"Video":"Image"))}</b><span class="adm-muted">${fmtSize(a.sizeBytes)} · ${fmtDate(String(a.createdAt||"").slice(0,10))}</span>
+        ${used.length?`<span class="md-used" title="${esc(used.join(", "))}">Used: ${esc(used[0])}${used.length>1?` +${used.length-1}`:""}</span>`:S.mdDel===a.id?`<span class="md-confirm">Delete for good? <button type="button" class="btn sm danger solid" data-md-do="${esc(a.id)}">Delete</button><button type="button" class="btn sm" data-md-del="">Keep</button></span>`:`<button type="button" class="btn sm" data-md-del="${esc(a.id)}">Delete</button>`}</figcaption></figure>`}).join("")}</div>`:`<div class="adm-empty">No images or videos yet.</div>`}
+      <p class="adm-note">Files that are in use can't be deleted. Remove them from the post or person first. To add an image to a post, open the post and click the image button in the toolbar.</p>`;
+    return;
+  }
+  if(sec==="person"||sec==="newperson"){
+    if(sec==="person"&&!S.people.has(rt.id)){b.innerHTML=`<div class="adm-empty">This person isn't on the chart anymore. <a href="#admin.people">Back to People</a></div>`;return}
+    b.innerHTML=`<div class="adm-form" id="adm-form"></div>`;
+    S.busy=false;S.drawer=sec==="person"?{mode:"edit",id:rt.id}:{mode:"new",managerId:S.people.has(rt.id)?rt.id:""};S.draft=null;renderDrawer();return;
+  }
+  if(sec==="post"||sec==="newpost"){
+    if(sec==="post"&&!S.posts.has(rt.id)&&!S.drafts.has(rt.id)){b.innerHTML=`<div class="adm-empty">This post doesn't exist anymore. <a href="#admin.posts">Back to Posts</a></div>`;return}
+    b.innerHTML=`<div class="adm-form wide" id="adm-form"></div>`;
+    S.busy=false;S.drawer=sec==="post"?{mode:"post",id:rt.id}:{mode:"post",isNew:true};S.draft=null;renderDrawer();return;
+  }
+  if(sec==="settings"){
+    b.innerHTML=`<div class="adm-form" id="adm-form"></div>`;
+    S.busy=false;S.drawer={mode:"settings"};S.draft=null;renderDrawer();return;
+  }
+  b.innerHTML=`<div class="adm-empty">This page doesn't exist. <a href="#admin">Go to Overview</a></div>`;
+}
+function statusPill(p){return p.status==="draft"?`<span class="dtag">Draft</span>`:`<span class="pub">Published</span>`}
+function renderPeopleList(){
+  const box=$("adm-list");if(!box)return;
+  const q=S.admQ.toLowerCase(),rows=q?[...S.people.values()].filter(p=>[p.name,p.role,p.team,p.location,p.email].some(v=>String(v||"").toLowerCase().includes(q))).sort((a,b)=>String(a.name).localeCompare(String(b.name))).map(p=>[p,0]):orderedPeople();
+  if(!rows.length){box.innerHTML=`<div class="adm-empty">${q?`No one matches “${esc(S.admQ)}”.`:"No one on the chart yet."}</div>`;return}
+  box.innerHTML=`<table class="adm-table"><thead><tr><th>Name</th><th>Job title</th><th>Reports to</th><th></th></tr></thead><tbody>${rows.map(([p,d])=>{const m=S.people.get(p.managerId);return`<tr data-go="#admin.person-${esc(p.id)}" tabindex="0"><td><span class="who" style="padding-left:${Math.min(d,6)*20}px;${tcs(p.team)}">${d?`<span class="adm-tree" aria-hidden="true">└</span>`:""}<span class="av">${avatar(p)}</span><b>${esc(p.name)}</b></span></td><td>${esc(p.role||"")}</td><td class="adm-muted">${m?esc(m.name):"Top of the chart"}</td><td class="adm-act"><a class="btn sm" href="#admin.person-${esc(p.id)}">Edit</a><a class="btn sm" href="#admin.newperson-${esc(p.id)}" title="Add someone who reports to ${esc(p.name)}">+ Report</a></td></tr>`}).join("")}</tbody></table>`;
+}
+document.addEventListener("input",e=>{if(e.target.id==="adm-q"){S.admQ=e.target.value;renderPeopleList()}});
+
+/* image picker */
+function openPicker(kind){
+  if(!S.assets){showErr("Uploading images needs the live site.");return}
+  S.pk=kind;const titles={editor:"Add an image to your post",cover:"Choose a cover image",photo:"Choose a photo",logo:"Choose a logo image"};
+  $("pk-title").textContent=titles[kind]||"Choose an image";$("pk-msg").textContent="Or pick one you've already uploaded.";$("pk-msg").style.color="";
+  $("picker").hidden=false;renderPicker();
+  if(!S.media)loadMedia().then(renderPicker);
+  setTimeout(()=>{const b=$("picker").querySelector("[data-pk-upload]");if(b)b.focus()},0);
+}
+function closePicker(){$("picker").hidden=true;S.pk=null;const t=ta();if(t&&S.drawer&&S.drawer.mode==="post")t.focus()}
+function renderPicker(){
+  const g=$("pk-grid");if(!g||$("picker").hidden)return;
+  if(!S.media){g.innerHTML=`<div class="adm-empty">Loading your images…</div>`;return}
+  const imgs=S.media.assets.filter(a=>/^image\//.test(a.contentType)).reverse();
+  g.innerHTML=imgs.length?imgs.map(a=>{const m=S.mediaMeta.get(a.id)||{};return`<button type="button" class="pk-item" data-pk-id="${esc(a.id)}" title="${esc(m.name||"Image")}"><img src="${esc(blob(a.id))}" alt="" loading="lazy"><span>${esc(m.name||"Image")}</span></button>`}).join(""):`<div class="adm-empty">No images yet. Upload your first one.</div>`;
+}
+async function pickerUpload(f){
+  if(!f)return;
+  const msg=$("pk-msg");
+  if(!f.type.startsWith("image/")){msg.textContent="That isn't an image. Use a PNG, JPG, WebP, GIF or SVG.";msg.style.color="var(--danger)";return}
+  if(f.size>20*1024*1024){msg.textContent="That image is over 20 MB. Use a smaller one.";msg.style.color="var(--danger)";return}
+  msg.textContent=`Uploading ${f.name}…`;msg.style.color="";
+  try{const id=await uploadImage(f);pickerChoose(id)}catch(err){msg.textContent=writeError(err);msg.style.color="var(--danger)"}
+}
+function pickerChoose(id){
+  const kind=S.pk;closePicker();
+  if(!S.draft)return;
+  if(kind==="editor"){const t=ta();if(!t)return;t.focus();const p=Math.min(S.edPos??t.value.length,t.value.length);t.setSelectionRange(p,p);insertBlock(`![](asset:${id})`,2,2);edMsg("Image added. Type a caption between the square brackets if you want one.")}
+  else if(kind==="cover"){S.draft.coverId=id;S.draft.dirty=true;const c=$("cv-prev");c.classList.remove("empty");c.innerHTML=`<img src="${esc(blob(id))}" alt="">`;$("cv-clear").hidden=false}
+  else if(kind==="photo"){S.draft.photoId=id;$("ph-prev").innerHTML=`<img src="${esc(blob(id))}" alt="">`;$("ph-clear").hidden=false}
+  else if(kind==="logo"){S.draft.logoImageId=id;S.draft.logoMode="image";$("s-lmode").value="image";syncLogoPrev()}
+}
+async function mediaUpload(files){
+  files=(files||[]).filter(Boolean);if(!files.length||!S.assets)return;
+  const msg=()=>$("md-msg");let ok=0,bad=[];S.mdMsg="";
+  for(const f of files){
+    if(!/^(image|video)\//.test(f.type)){bad.push(`${f.name} isn't an image or video`);continue}
+    if(f.size>20*1024*1024){bad.push(`${f.name} is over 20 MB`);continue}
+    if(msg())msg().textContent=`Uploading ${f.name}…`;
+    try{await uploadImage(f);ok++}catch(err){bad.push(`${f.name}: ${writeError(err)}`)}
+  }
+  S.mdMsg=bad.length?bad.join(". ")+".":"";
+  await loadMedia(true);renderAdminBody();
+  if(ok)toast(`Uploaded ${ok} file${ok===1?"":"s"}`);
+}
+async function mediaDelete(id,btn){
+  if((mediaUsage().get(id)||[]).length){S.mdDel=null;return renderAdminBody()}
+  btn.disabled=true;
+  try{await S.assets.delete(id);if(S.db)await S.db.doc("media/"+id).delete().catch(()=>{});S.mediaMeta.delete(id);S.mdDel=null;await loadMedia(true);renderAdminBody();toast("File deleted")}
+  catch(err){btn.disabled=false;toast("Couldn't delete that file. Try again.")}
+}
+
 /* ---------- writes ---------- */
 async function savePerson(p){if(S.db)await S.db.doc("people/"+p.id).set(p);S.people.set(p.id,p)}
 async function removePerson(id){
@@ -901,7 +1241,12 @@ function writeError(e){
 }
 async function uploadImage(file){
   if(!S.assets)throw{code:"not_granted"};
-  const r=await S.assets.upload(file);return r.id;
+  const r=await S.assets.upload(file);
+  const meta={name:String(file.name||"file").slice(0,200),type:r.contentType||file.type||"",size:r.sizeBytes||file.size||0,createdAt:new Date().toISOString()};
+  S.mediaMeta.set(r.id,meta);
+  if(S.media)S.media.assets.push({id:r.id,url:r.url,contentType:meta.type,sizeBytes:meta.size,createdAt:meta.createdAt});
+  if(S.db)S.db.doc("media/"+r.id).set(meta).catch(()=>{});
+  return r.id;
 }
 async function savePost(publish){
   const d=S.drawer;showErr("");
@@ -917,9 +1262,10 @@ async function savePost(publish){
       else{await S.db.doc("drafts/"+id).set(post);if(S.posts.has(id))await S.db.doc("posts/"+id).delete()}
     }
     if(publish){S.posts.set(id,{...post,id});S.drafts.delete(id)}else{S.drafts.set(id,{...post,id});S.posts.delete(id)}
-    S.busy=false;S.drawer=null;S.draft=null;S.lp=null;renderDrawer();
+    S.busy=false;S.drawer=null;S.draft=null;S.lp=null;
     toast(publish?"Post published":"Saved as draft");
-    const target=href("post",id);if(location.hash!==target)location.hash=target;else render();
+    if(route().page==="admin")return navAdmin("post-"+id);
+    renderDrawer();const target=href("post",id);if(location.hash!==target)location.hash=target;else render();
   }catch(err){S.busy=false;$("submit").disabled=false;$("save-draft").disabled=false;btn.textContent=old;showErr(writeError(err))}
 }
 async function removePost(id){
@@ -929,21 +1275,35 @@ async function removePost(id){
 
 /* ---------- events ---------- */
 document.addEventListener("mousedown",e=>{if(e.target.closest("[data-fmt]"))e.preventDefault()});
+document.addEventListener("click",e=>{
+  const a=e.target.closest&&e.target.closest('a[href^="#"]');
+  if(a&&edDirty()&&a.getAttribute("href")!==location.hash){e.preventDefault();e.stopPropagation();S.pendingHash=a.getAttribute("href");const c=$("discard-confirm");if(c){c.hidden=false;c.scrollIntoView({block:"nearest"})}}
+},true);
 document.addEventListener("click",async e=>{
+  const go=e.target.closest("[data-go]");
+  if(go&&!e.target.closest("a,button")){location.hash=go.dataset.go;return}
   const t=e.target.closest("button,tr[data-open]");if(!t)return;
   if(t.dataset.tog){const id=t.dataset.tog;S.collapsed.has(id)?S.collapsed.delete(id):S.collapsed.add(id);return render()}
   if(t.dataset.cat!==undefined){S.cat=t.dataset.cat;return render()}
   if(t.dataset.fmt){e.preventDefault();return edFormat(t.dataset.fmt)}
   if(t.dataset.edtab)return edTab(t.dataset.edtab);
   if(t.dataset.lp)return t.dataset.lp==="insert"?doLinkInsert():closeLinkPop();
-  if(t.hasAttribute("data-keep-editing")){$("discard-confirm").hidden=true;return}
-  if(t.hasAttribute("data-discard"))return closeDrawer(true);
+  if(t.hasAttribute("data-keep-editing")){S.pendingHash=null;$("discard-confirm").hidden=true;return}
+  if(t.hasAttribute("data-discard")){if(S.pendingHash){const h=S.pendingHash;S.pendingHash=null;if(S.draft)S.draft.dirty=false;location.hash=h;return}return closeDrawer(true)}
+  if(t.dataset.pick)return openPicker(t.dataset.pick);
+  if(t.hasAttribute("data-pk-close"))return closePicker();
+  if(t.hasAttribute("data-pk-upload"))return $("pk-file").click();
+  if(t.dataset.pkId)return pickerChoose(t.dataset.pkId);
+  if(t.hasAttribute("data-md-upload"))return $("md-file").click();
+  if(t.dataset.mdDel!==undefined){S.mdDel=t.dataset.mdDel;return renderAdminBody()}
+  if(t.dataset.mdDo)return mediaDelete(t.dataset.mdDo,t);
+  if(t.dataset.ptab){S.admPostTab=t.dataset.ptab;return renderAdminBody()}
   if(t.dataset.editpost)return openDrawer({mode:"post",id:t.dataset.editpost});
   if(t.id==="save-draft"){if(!S.busy)savePost(false);return}
   if(t.id==="cv-clear"){S.draft.coverId="";S.draft.dirty=true;$("cv-prev").textContent="No cover image";$("cv-prev").classList.add("empty");t.hidden=true;return}
   if(t.hasAttribute("data-do-delpost")){
     const id=S.drawer.id;t.disabled=true;
-    try{await removePost(id);S.drawer=null;renderDrawer();toast("Post deleted");const target=href("blog");if(location.hash!==target)location.hash=target;else render()}
+    try{await removePost(id);S.drawer=null;S.draft=null;toast("Post deleted");if(route().page==="admin")return navAdmin("posts");renderDrawer();const target=href("blog");if(location.hash!==target)location.hash=target;else render()}
     catch(err){t.disabled=false;showErr(writeError(err))}
     return;
   }
@@ -980,24 +1340,17 @@ document.addEventListener("change",async e=>{
   const t=e.target;
   if(t.dataset&&t.dataset.k&&t.tagName==="SELECT"&&S.draft){S.draft[t.dataset.k]=t.value;syncLogoPrev()}
   if(t.id==="ed-imgfile"||t.id==="ed-vidfile"){const f=t.files&&t.files[0];t.value="";return uploadMedia(f,t.id==="ed-imgfile"?"image":"video")}
-  if(t.id==="s-lfile"||t.id==="f-photo"||t.id==="f-cover"){
-    const f=t.files&&t.files[0];if(!f)return;
-    if(!f.type.startsWith("image/")){showErr("Choose an image file (PNG, JPG, WebP or SVG).");return}
-    const lbl=t.parentElement;const old=lbl.firstChild.textContent;lbl.firstChild.textContent="Uploading…";showErr("");
-    try{
-      const id=await uploadImage(f);
-      if(t.id==="s-lfile"){S.draft.logoImageId=id;S.draft.logoMode="image";$("s-lmode").value="image";syncLogoPrev()}
-      else if(t.id==="f-cover"){S.draft.coverId=id;S.draft.dirty=true;$("cv-prev").classList.remove("empty");$("cv-prev").innerHTML=`<img src="${esc(blob(id))}" alt="">`;$("cv-clear").hidden=false}
-      else{S.draft.photoId=id;$("ph-prev").innerHTML=`<img src="${esc(blob(id))}" alt="">`;$("ph-clear").hidden=false}
-    }catch(err){showErr(writeError(err))}
-    lbl.firstChild.textContent=old;t.value="";
-  }
+  if(t.id==="pk-file"){const f=t.files&&t.files[0];t.value="";return pickerUpload(f)}
+  if(t.id==="md-file"){const fs=[...(t.files||[])];t.value="";return mediaUpload(fs)}
 });
 document.addEventListener("keydown",e=>{
   edKeydown(e);if(e.defaultPrevented)return;
   if(e.key==="Enter"&&e.target.tagName==="INPUT"&&e.target.closest("#postform")){e.preventDefault();return}
-  if(e.key==="Escape"&&S.drawer){if(S.lp)return closeLinkPop();return closeDrawer()}
+  if(e.key==="Escape"&&!$("picker").hidden){e.preventDefault();return closePicker()}
+  if(e.key==="Escape"&&S.lp)return closeLinkPop();
+  if(e.key==="Escape"&&S.drawer&&route().page!=="admin")return closeDrawer();
   if(e.key==="Enter"&&e.target.matches("tr[data-open]"))openDrawer({mode:"view",id:e.target.dataset.open});
+  if(e.key==="Enter"&&e.target.matches("[data-go]")){e.preventDefault();location.hash=e.target.dataset.go}
 });
 $("scrim").addEventListener("click",()=>closeDrawer());
 document.addEventListener("paste",e=>{
@@ -1007,7 +1360,11 @@ document.addEventListener("paste",e=>{
 });
 document.addEventListener("dragover",e=>{const ed=e.target.closest&&e.target.closest("#editor");if(ed&&S.assets&&[...(e.dataTransfer.types||[])].includes("Files")){e.preventDefault();ed.classList.add("drag")}});
 document.addEventListener("dragleave",e=>{const ed=e.target.closest&&e.target.closest("#editor");if(ed&&!ed.contains(e.relatedTarget))ed.classList.remove("drag")});
+document.addEventListener("dragover",e=>{const z=e.target.closest&&e.target.closest("#md-drop,#picker .pk-box");if(z&&S.assets&&[...(e.dataTransfer.types||[])].includes("Files")){e.preventDefault();z.classList.add("drag")}});
+document.addEventListener("dragleave",e=>{const z=e.target.closest&&e.target.closest("#md-drop,#picker .pk-box");if(z&&!z.contains(e.relatedTarget))z.classList.remove("drag")});
 document.addEventListener("drop",e=>{
+  const z=e.target.closest&&e.target.closest("#md-drop,#picker .pk-box");
+  if(z&&S.assets){e.preventDefault();z.classList.remove("drag");const fs=[...(e.dataTransfer.files||[])];if(z.id==="md-drop")mediaUpload(fs);else pickerUpload(fs.find(f=>f.type.startsWith("image/")));return}
   const ed=e.target.closest&&e.target.closest("#editor");if(!ed||!S.assets)return;
   const f=[...(e.dataTransfer.files||[])].find(x=>/^(image|video)\//.test(x.type));ed.classList.remove("drag");
   if(f){e.preventDefault();uploadMedia(f,f.type.startsWith("video/")?"video":"image")}
@@ -1019,9 +1376,6 @@ $("expand").addEventListener("click",()=>{
   if(S.collapsed.size)S.collapsed.clear();else [...S.people.values()].forEach(p=>{if(p.managerId&&kids(p.id).length)S.collapsed.add(p.id)});
   render();
 });
-$("add-btn").addEventListener("click",()=>openDrawer({mode:"new"}));
-$("newpost-btn").addEventListener("click",()=>openDrawer({mode:"post",isNew:true}));
-$("settings-btn").addEventListener("click",()=>openDrawer({mode:"settings"}));
 
 document.addEventListener("submit",async e=>{
   e.preventDefault();if(S.busy)return;showErr("");
@@ -1054,7 +1408,7 @@ document.addEventListener("submit",async e=>{
   if(rawLink&&!link)return showErr("That link doesn't look right. Use a web address like https://example.com/profile.");
   const p={id,name,link,linkLabel:$("f-linklabel").value.trim(),role:$("f-role").value.trim(),team:$("f-team").value||"Other",managerId:$("f-mgr").value,location:$("f-loc").value.trim(),email,bio:$("f-bio").value.trim(),sort:Number($("f-sort").value)||0,photoId:S.draft.photoId||""};
   setBusy(true,"Saving…");
-  try{await savePerson(p);if(p.managerId)S.collapsed.delete(p.managerId);openDrawer({mode:"view",id});toast(isNew?`Added ${name}`:"Changes saved")}
+  try{await savePerson(p);if(p.managerId)S.collapsed.delete(p.managerId);toast(isNew?`Added ${name}`:"Changes saved");if(route().page==="admin"){S.busy=false;S.drawer=null;S.draft=null;return navAdmin("people")}openDrawer({mode:"view",id})}
   catch(err){showErr(writeError(err));setBusy(false,isNew?"Add to chart":"Save changes")}
 });
 

@@ -15,6 +15,7 @@ To run the editable version on your own host, replace the calls in the "live dat
 bottom of the script (and `savePerson`, `removePerson`, `savePost`, `removePost`, the settings save,
 and `uploadImage`) with your own backend, such as Firebase, Supabase or a small API.
 
-## Admin mode
-On claude.ai, add `#admin` to the link (e.g. `.../artifact/<id>#admin`, or `#updates.admin` for the
-Updates page). Only the owner and people with Editor access get the editing controls.
+## Admin dashboard
+On the live site, the owner and people with Editor access see a small **Admin** button in the
+bottom-right corner (or add `#admin` to the link). The dashboard has Overview, People, Posts,
+Media (image and video library) and Settings. Visitors never see it.
