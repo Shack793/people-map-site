@@ -16,7 +16,7 @@ jobs:
       - name: Deploy via SSH (rsync) to Namecheap
         uses: Burnett01/rsync-deployments@7.0.1
         with:
-          switches: -avzr --delete --exclude='.git*' --exclude='.github/**' --exclude='node_modules/**' --exclude='.gitignore'
+          switches: -avzr --delete --exclude='.git*' --exclude='.github/**' --exclude='node_modules/**' --exclude='.gitignore' --exclude='data/site.php' --exclude='data/auth.php' --exclude='data/throttle.php' --exclude='data/.lock' --exclude='uploads/**'
           path: ./
           remote_path: ${{ secrets.SSH_TARGET_DIR }}
           remote_host: ${{ secrets.SSH_HOST }}
