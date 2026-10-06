@@ -71,9 +71,20 @@ h1{font-family:var(--display);font-weight:700;font-size:21px;margin:0;letter-spa
 main{padding:8px 0 32px;flex:1}
 .chart-wrap{overflow-x:auto;padding:12px 16px 24px}
 .tree{display:flex;justify-content:center;min-width:max-content;margin:0 auto}
+.grid-mode{overflow-x:visible;padding:12px clamp(16px,2.5vw,32px) 32px}
+.grid-mode .tree{display:block;min-width:0;width:100%}
+.pgrid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:clamp(12px,1.8vw,24px);width:100%}
+.pgrid .card{width:auto}
+.pgrid .card.photo{width:auto;height:auto;aspect-ratio:3/4;max-width:100%;border-radius:14px}
+.pgrid .card.photo .cap{padding:8px 16px}
+.pgrid .card.photo .nm{font-size:clamp(15px,1.5vw,19px)}
+.pgrid .card.photo .rl{font-size:clamp(12.5px,1.15vw,15px)}
+.pgrid .ph-empty b{font-size:clamp(20px,2.2vw,30px)}
+@media (max-width:1100px){.pgrid{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media (max-width:720px){.pgrid{grid-template-columns:repeat(2,minmax(0,1fr))}.pgrid .card.photo{grid-template-rows:minmax(0,4fr) minmax(0,1fr)}.pgrid .card.photo .cap{padding:3px 10px}.pgrid .card.photo .nm{font-size:14px;line-height:1.2}.pgrid .card.photo .rl{font-size:11.5px;line-height:1.2}}
 .tree ul{display:flex;justify-content:center;padding:22px 0 0;margin:0;position:relative}
 .tree>ul{padding-top:0}
-.tree li{list-style:none;position:relative;padding:22px 10px 0;display:flex;flex-direction:column;align-items:center}
+.tree li{list-style:none;position:relative;padding:22px 7px 0;display:flex;flex-direction:column;align-items:center}
 .tree li::before,.tree li::after{content:"";position:absolute;top:0;width:50%;height:22px;border-top:1.5px solid var(--line)}
 .tree li::before{right:50%}
 .tree li::after{left:50%;border-left:1.5px solid var(--line)}
@@ -85,20 +96,38 @@ main{padding:8px 0 32px;flex:1}
 .tree li:first-child::after{border-top-left-radius:6px}
 .tree ul ul::before{content:"";position:absolute;top:0;left:50%;height:22px;border-left:1.5px solid var(--line)}
 
-.card{width:260px;min-height:140px;background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:14px 16px;text-align:left;display:grid;grid-template-columns:52px 1fr;gap:6px 12px;position:relative;box-shadow:var(--shadow);transition:opacity .15s,border-color .15s;align-content:start}
+.card{width:196px;background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:10px 12px;text-align:left;display:grid;grid-template-columns:36px 1fr;gap:4px 10px;position:relative;box-shadow:var(--shadow);transition:opacity .15s,border-color .15s}
 .card::before{content:"";position:absolute;inset:0 0 auto 0;height:3px;border-radius:10px 10px 0 0;background:var(--tc)}
 .card:hover{border-color:var(--ink-3)}
 .card.sel{border-color:var(--accent);box-shadow:0 0 0 2px var(--accent-soft),var(--shadow)}
 .card.dim{opacity:.32}
 .card.hit{border-color:var(--accent)}
 .card .open{position:absolute;inset:0;border:0;background:none;border-radius:10px}
-.av{width:52px;height:52px;border-radius:50%;display:grid;place-items:center;font-family:var(--display);font-weight:600;font-size:18px;color:var(--tc);background:color-mix(in srgb,var(--tc) 15%,var(--surface));grid-row:span 2;overflow:hidden;flex:none;align-self:start}
+.av{width:36px;height:36px;border-radius:50%;display:grid;place-items:center;font-family:var(--display);font-weight:600;font-size:13px;color:var(--tc);background:color-mix(in srgb,var(--tc) 15%,var(--surface));grid-row:span 2;overflow:hidden;flex:none}
 .av img{width:100%;height:100%;object-fit:cover}
-.nm{font-weight:600;font-size:17px;line-height:1.25;overflow-wrap:anywhere}
-.rl{font-size:14px;color:var(--ink-2);line-height:1.35;overflow-wrap:anywhere;min-height:2.7em}
-.meta{grid-column:1/-1;display:flex;justify-content:space-between;align-items:center;margin-top:6px;gap:6px;min-height:24px}
-.chip{font-family:var(--mono);font-size:11.5px;letter-spacing:.04em;text-transform:uppercase;color:var(--tc);background:color-mix(in srgb,var(--tc) 13%,var(--surface));padding:2px 6px;border-radius:4px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:150px}
+.nm{font-weight:600;font-size:14px;line-height:1.25;overflow-wrap:anywhere}
+.rl{font-size:12.5px;color:var(--ink-2);line-height:1.3;overflow-wrap:anywhere}
+.meta{grid-column:1/-1;display:flex;justify-content:space-between;align-items:center;margin-top:4px;gap:6px}
+.chip{font-family:var(--mono);font-size:10.5px;letter-spacing:.04em;text-transform:uppercase;color:var(--tc);background:color-mix(in srgb,var(--tc) 13%,var(--surface));padding:2px 6px;border-radius:4px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:120px}
 .card .ext{position:absolute;top:9px;right:9px;color:var(--ink-3);pointer-events:none}
+.card.photo{width:212px;height:290px;padding:0;display:grid;grid-template-columns:1fr;grid-template-rows:4fr 1fr;gap:0;overflow:hidden;border-radius:12px}
+.card.photo::before{display:none}
+.card.photo .ph,.card.photo .cap{pointer-events:none}
+.card.photo .meta{pointer-events:auto;z-index:2}
+.card.photo .ph{display:block;min-height:0;overflow:hidden;background:color-mix(in srgb,var(--tc) 14%,var(--surface));border-bottom:3px solid var(--tc)}
+.card.photo .ph img{width:100%;height:100%;object-fit:cover;object-position:50% 25%;display:block;transition:transform .25s}
+.card.photo:hover .ph img{transform:scale(1.03)}
+.ph-empty{position:relative;display:grid;place-items:center;width:100%;height:100%;color:color-mix(in srgb,var(--tc) 38%,var(--surface))}
+.ph-empty .sil{position:absolute;inset:auto 0 0 0;width:100%;height:82%;fill:currentColor}
+.ph-empty b{position:relative;font-family:var(--display);font-size:22px;font-weight:700;color:var(--tc);background:var(--surface);border-radius:999px;padding:3px 10px;margin-top:-58%;box-shadow:var(--shadow)}
+.card.photo .cap{display:flex;flex-direction:column;justify-content:center;gap:1px;padding:6px 12px;min-width:0}
+.card.photo .nm,.card.photo .rl{white-space:nowrap;overflow:hidden;text-overflow:ellipsis;overflow-wrap:normal}
+.card.photo .nm{font-size:14.5px}
+.card.photo .meta{position:absolute;right:8px;top:8px;margin:0;width:auto}
+.card.photo .meta .chip{background:var(--surface)}
+.card.photo .ext{top:10px;right:10px;color:#fff;background:rgba(0,0,0,.45);border-radius:6px;padding:4px;display:grid;place-items:center;z-index:1}
+.card.photo.linked .meta{right:40px}
+.card.photo.linked .nm{padding-right:0}
 .card.linked .nm{padding-right:14px}
 a.card-link{text-decoration:none}
 .tog{position:relative;z-index:1;border:1px solid var(--line);background:var(--surface-2);border-radius:999px;font-family:var(--mono);font-size:11px;padding:1px 8px;color:var(--ink-2);font-variant-numeric:tabular-nums}
@@ -247,7 +276,7 @@ input[type=color]{width:40px;height:34px;padding:2px;border:1px solid var(--line
 .media-card .play{width:40px;height:40px;border-radius:50%;background:var(--accent);color:var(--accent-ink);display:grid;place-items:center;flex:none;font-size:13px;padding-left:2px}
 .media-card>span:last-child{display:flex;flex-direction:column;min-width:0;line-height:1.35}
 .mc-url{font-size:12.5px;color:var(--ink-3);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
-@media (max-width:560px){.nav{flex:1 1 100%}.nav a{flex:1;justify-content:center;padding:14px 20px}.search input{width:100%}.search{flex:1 1 100%}.row2{grid-template-columns:1fr}dl{grid-template-columns:1fr}dt{padding-top:0}.prow,.prow.has-th{grid-template-columns:1fr}.pthumb{grid-row:1;aspect-ratio:16/8}.pdate{padding-top:0}}
+@media (max-width:560px){.card.photo{width:168px;height:232px}.ph-empty b{font-size:18px}.nav{flex:1 1 100%}.nav a{flex:1;justify-content:center;padding:14px 20px}.search input{width:100%}.search{flex:1 1 100%}.row2{grid-template-columns:1fr}dl{grid-template-columns:1fr}dt{padding-top:0}.prow,.prow.has-th{grid-template-columns:1fr}.pthumb{grid-row:1;aspect-ratio:16/8}.pdate{padding-top:0}}
 
 .admin-fab{position:fixed;right:16px;bottom:calc(16px + env(safe-area-inset-bottom,0px));z-index:8;display:inline-flex;align-items:center;gap:6px;padding:8px 13px;border-radius:999px;background:var(--ink);color:var(--bg);text-decoration:none;font-weight:600;font-size:13px;box-shadow:var(--shadow);opacity:.85}
 .admin-fab:hover{opacity:1}
@@ -427,7 +456,7 @@ const DEFAULTS={
   showStats:false, showTeams:false, showEmail:true, showLocation:true, showIntro:true,
   labelPerson:"person", labelPeople:"people", clickAction:"profile",
   showSearch:false, showViewToggle:false, showCollapse:false,
-  showBlog:true, homeLayout:"updates", navTeam:"Team", navBlog:"Updates", blogTitle:"Updates & announcements",
+  showBlog:true, homeLayout:"updates", cardStyle:"photo", chartLayout:"grid", navTeam:"Team", navBlog:"Updates", blogTitle:"Updates & announcements",
   blogIntro:"News, announcements and updates from the team.", categories:"Announcement, Update, News, Event"
 };
 const SAMPLE_POSTS=[{"author": "Alex Morgan", "body": "This is a placeholder post. Replace it with your own announcement.\n\nThis page is where we'll share **company news**, team updates and upcoming events. Check back here for the latest.\n\n## What you'll find here\n\n- Announcements about new people and roles\n- Monthly progress updates\n- Dates for team events", "category": "Announcement", "coverId": "", "date": "2026-09-28", "pinned": true, "title": "Welcome to our new team page", "updatedAt": "2026-09-28T12:00:00Z", "id": "b01"}, {"author": "Sam Rivera", "body": "Placeholder update. Summarize what the team worked on this month, what shipped and what's coming next.\n\n## Highlights\n\n- A milestone the team reached\n- A new partnership or customer\n- Something planned for next month", "category": "Update", "coverId": "", "date": "2026-09-20", "pinned": false, "title": "September progress update", "updatedAt": "2026-09-20T12:00:00Z", "id": "b02"}, {"author": "Taylor Brooks", "body": "Placeholder post. Introduce new hires here, with their role and the team they're joining.\n\nYou can find everyone on the *Team* page.", "category": "News", "coverId": "", "date": "2026-09-12", "pinned": false, "title": "Welcoming two new team members", "updatedAt": "2026-09-12T12:00:00Z", "id": "b03"}, {"author": "Drew Mensah", "body": "Placeholder event post. Add the date, time, place and anything people should bring.\n\n> Tip: pin a post to keep it at the top of the page.", "category": "Event", "coverId": "", "date": "2026-09-05", "pinned": false, "title": "Team get-together in October", "updatedAt": "2026-09-05T12:00:00Z", "id": "b04"}];
@@ -448,6 +477,7 @@ const tcs=t=>`--tcr:${S.cfg.showTeams?teamColor(t):(hex(S.cfg.accent)||"#0f6e6a"
 const byOrder=(a,b)=>(a.sort??999)-(b.sort??999)||String(a.name).localeCompare(String(b.name));
 function safeUrl(u){u=String(u||"").trim();if(!u)return"";if(!/^[a-z][a-z0-9+.-]*:/i.test(u))u="https://"+u;try{const x=new URL(u);return /^https?:$/.test(x.protocol)?x.href:""}catch(_){return""}}
 const EXT=`<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 4h6v6M20 4l-9 9M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5"/></svg>`;
+const SIL='<svg class="sil" viewBox="0 0 100 100" aria-hidden="true"><circle cx="50" cy="38" r="19"/><path d="M14 100c2-22 17-34 36-34s34 12 36 34z"/></svg>';
 const avatar=p=>p.photoId?`<img src="${esc(blob(p.photoId))}" alt="">`:esc(initials(p.name));
 
 function kids(id){return [...S.people.values()].filter(p=>p.managerId===id&&p.id!==id).sort(byOrder)}
@@ -605,27 +635,35 @@ function renderTeam(){
     <span class="legend">${Object.keys(teams).sort().map(t=>`<span style="${tcs(t)}"><i class="dot"></i>${esc(t)}</span>`).join("")}</span>`;
   $("v-tree").setAttribute("aria-pressed",S.view==="tree");$("v-dir").setAttribute("aria-pressed",S.view==="dir");
   $("tree-view").hidden=S.view!=="tree";$("dir-view").hidden=S.view!=="dir";
-  $("expand").hidden=S.view!=="tree"||!c.showCollapse;$("expand").textContent=S.collapsed.size?"Expand all":"Collapse all";
+  $("expand").hidden=S.view!=="tree"||!c.showCollapse||c.chartLayout!=="tree";$("expand").textContent=S.collapsed.size?"Expand all":"Collapse all";
   S.view==="tree"?renderTree():renderDir();
 }
 function renderTree(){
   const r=roots();
   if(!r.length){$("tree").innerHTML=`<div class="empty">No one on the map yet.${isAdmin()?" Use “Add person” to start.":""}</div>`;return}
-  const seen=new Set();
+  const seen=new Set(),grid=S.cfg.chartLayout!=="tree";
+  $("tree-view").classList.toggle("grid-mode",grid);
   const node=p=>{
     if(seen.has(p.id))return"";seen.add(p.id);
-    const k=kids(p.id),coll=S.collapsed.has(p.id),hit=matches(p);
+    const k=grid?[]:kids(p.id),coll=S.collapsed.has(p.id),hit=matches(p);
     const cls=["card",S.drawer&&S.drawer.id===p.id?"sel":"",S.q?(hit?"hit":"dim"):""].join(" ");
     const url=safeUrl(p.link),direct=url&&S.cfg.clickAction==="link";
     const opener=direct?`<a class="open" href="${esc(url)}" target="_blank" rel="noopener noreferrer" aria-label="${esc(p.linkLabel||"Open link")} for ${esc(p.name)} (opens in a new tab)"></a>`:`<button class="open" data-open="${esc(p.id)}" aria-label="Open ${esc(p.name)}"></button>`;
-    const reserveMeta=S.cfg.showTeams||S.cfg.showCollapse;
-    const showMeta=reserveMeta||direct;
-    return `<li><div class="${cls}${url?" linked":""}" style="${tcs(p.team)}">
+    const big=S.cfg.cardStyle!=="compact";
+    return `${grid?"":"<li>"}<div class="${cls}${url?" linked":""}${big?" photo":""}" style="${tcs(p.team)}">
       ${opener}${url?`<span class="ext" title="Has a link">${EXT}</span>`:""}
-      <span class="av">${avatar(p)}</span><span class="nm">${esc(p.name||"Unnamed")}</span><span class="rl">${esc(p.role||"—")}</span>
-      ${showMeta?`<span class="meta">${S.cfg.showTeams?`<span class="chip">${esc(p.team||"Other")}</span>`:"<span></span>"}<span class="inline" style="gap:4px">${direct?`<button class="tog" data-open="${esc(p.id)}" aria-label="Profile for ${esc(p.name)}">Profile</button>`:""}${k.length&&S.cfg.showCollapse?`<button class="tog" data-tog="${esc(p.id)}" aria-expanded="${!coll}">${coll?"+":"−"} ${k.length}</button>`:`${reserveMeta?`<span class="tog" style="visibility:hidden" aria-hidden="true">− 0</span>`:""}`}</span></span>`:""}
-    </div>${k.length&&!coll?`<ul>${k.map(node).join("")}</ul>`:""}</li>`;
+      ${big?`<span class="ph">${p.photoId?`<img src="${esc(blob(p.photoId))}" alt="" loading="lazy">`:`<span class="ph-empty">${SIL}<b>${esc(initials(p.name))}</b></span>`}</span><span class="cap">`:`<span class="av">${avatar(p)}</span>`}<span class="nm">${esc(p.name||"Unnamed")}</span><span class="rl">${esc(p.role||"—")}</span>
+      ${(S.cfg.showTeams||direct||(k.length&&S.cfg.showCollapse))?`<span class="meta">${S.cfg.showTeams?`<span class="chip">${esc(p.team||"Other")}</span>`:"<span></span>"}<span class="inline" style="gap:4px">${direct?`<button class="tog" data-open="${esc(p.id)}" aria-label="Profile for ${esc(p.name)}">Profile</button>`:""}${k.length&&S.cfg.showCollapse?`<button class="tog" data-tog="${esc(p.id)}" aria-expanded="${!coll}">${coll?"+":"−"} ${k.length}</button>`:""}</span></span>`:""}${big?"</span>":""}
+    </div>${k.length&&!coll?`<ul>${k.map(node).join("")}</ul>`:""}${grid?"":"</li>"}`;
   };
+  if(grid){
+    // top of the chart first, then each level in turn
+    const order=[],q=[...r],done=new Set();
+    while(q.length){const p=q.shift();if(done.has(p.id))continue;done.add(p.id);order.push(p);q.push(...kids(p.id))}
+    S.people.forEach(p=>{if(!done.has(p.id))order.push(p)});
+    $("tree").innerHTML=`<div class="pgrid">${order.map(node).join("")}</div>`;
+    return;
+  }
   $("tree").innerHTML=`<ul>${r.map(node).join("")}</ul>`;
   centerChart();
 }
@@ -750,6 +788,8 @@ function renderDrawer(){
       </fieldset>
       <fieldset><legend>Look</legend>
         <div class="field"><label for="s-acc">Accent color</label><div class="inline"><input type="color" id="s-acc" data-k="accent" value="${esc(hex(c.accent)||"#0f6e6a")}"><span class="hint">Buttons, highlights and links</span></div></div>
+        <div class="field"><label for="s-chart">Team layout</label><select id="s-chart" data-k="chartLayout"><option value="grid" ${c.chartLayout!=="tree"?"selected":""}>Grid of big boxes that fills the page</option><option value="tree" ${c.chartLayout==="tree"?"selected":""}>Hierarchy tree with connecting lines</option></select><span class="hint">The grid goes top to bottom by level: the person at the top first, then the people reporting to them, and so on.</span></div>
+        <div class="field"><label for="s-card">Box style</label><select id="s-card" data-k="cardStyle"><option value="photo" ${c.cardStyle!=="compact"?"selected":""}>Large photo (photo fills most of the box)</option><option value="compact" ${c.cardStyle==="compact"?"selected":""}>Compact (small round photo)</option></select></div>
         <div class="field"><label for="s-click">When someone clicks a box</label><select id="s-click" data-k="clickAction"><option value="profile" ${c.clickAction!=="link"?"selected":""}>Open their profile</option><option value="link" ${c.clickAction==="link"?"selected":""}>Go to their link (if they have one)</option></select><span class="hint">Links open in a new tab. People without a link still open their profile.</span></div>
         <div class="field"><label for="s-view">Opening view</label><select id="s-view" data-k="defaultView"><option value="tree" ${c.defaultView!=="dir"?"selected":""}>Chart</option><option value="dir" ${c.defaultView==="dir"?"selected":""}>Directory</option></select></div>
       </fieldset>
