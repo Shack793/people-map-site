@@ -1,0 +1,33 @@
+# Open index.php (which builds each page for search engines) before any old index.html
+DirectoryIndex index.php index.html
+
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  # Tells the site that clean addresses (/team, /updates/...) are available
+  RewriteRule ^ - [E=SITE_REWRITE:1]
+  RewriteRule ^updates/?$ index.php?page=updates [L,QSA]
+  RewriteRule ^updates/([A-Za-z0-9_-]+)(/[^/]*)?/?$ index.php?post=$1 [L,QSA]
+  RewriteRule ^team/?$ index.php?page=team [L,QSA]
+  RewriteRule ^sitemap\.xml$ sitemap.php [L]
+  RewriteRule ^robots\.txt$ robots.php [L]
+  RewriteRule ^favicon\.ico$ favicon.php [L]
+  RewriteRule ^feed/?$ feed.php [L]
+</IfModule>
+
+# Files the site uses internally; not for visitors
+<FilesMatch "^(app-template\.php|site-lib\.php|seed\.json|README\.txt)$">
+  <IfModule mod_authz_core.c>
+    Require all denied
+  </IfModule>
+  <IfModule !mod_authz_core.c>
+    Order allow,deny
+    Deny from all
+  </IfModule>
+</FilesMatch>
+
+# Always fetch the latest version of the start page (stops browsers showing an old copy)
+<IfModule mod_headers.c>
+  <FilesMatch "^index\.(html|php)$">
+    Header set Cache-Control "no-cache, must-revalidate"
+  </FilesMatch>
+</IfModule>

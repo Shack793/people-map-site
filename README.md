@@ -1,21 +1,25 @@
-# People map + Updates site
+# PeopleMate
 
-## Files
-- **index.html**: the full site: org chart, profiles, Updates page, post editor and admin mode.
-- **preview.html**: a read-only copy with your current people, posts and settings built in. Open it in any browser; no login or server needed.
-- **data/**: your current content as JSON (`people.json`, `posts.json`, `settings.json`).
+People directory, team chart, updates, and PHP-backed admin dashboard.
 
-## How saving works
-index.html stores everything through the claude.ai artifact runtime (`window.claude.use("db")`
-for data, `use("assets")` for uploaded images and videos, `use("user")` to check who can edit).
-Outside claude.ai those aren't available, so the page falls back to the built-in sample content,
-read-only.
+## Runtime
+- Requires PHP 7.4 or newer with the `fileinfo` extension.
+- `index.php` renders public pages and search metadata; `app-template.php` contains the page UI.
+- `api.php` handles admin login, people/posts/settings, and image/video uploads.
+- `admin/` provides the admin route. `feed.php`, `sitemap.php`, `robots.php`, and `favicon.php` provide site metadata and feeds.
+- `seed.json` initializes a new installation. Saved content, admin credentials, and uploaded files live in `data/` and `uploads/`.
+- `index.html` remains as a redirect for older links; `preview.html` is a static preview.
 
-To run the editable version on your own host, replace the calls in the "live data" block at the
-bottom of the script (and `savePerson`, `removePerson`, `savePost`, `removePost`, the settings save,
-and `uploadImage`) with your own backend, such as Firebase, Supabase or a small API.
+## Local check
+Run the site from this directory with PHP's built-in server:
 
-## Admin dashboard
-On the live site, the owner and people with Editor access see a small **Admin** button in the
-bottom-right corner (or add `#admin` to the link). The dashboard has Overview, People, Posts,
-Media (image and video library) and Settings. Visitors never see it.
+```powershell
+php -S 127.0.0.1:8000
+```
+
+Then open `http://127.0.0.1:8000/`. The `data/` and `uploads/` directories must be writable by PHP.
+
+## Deployment
+The `main` branch GitHub Actions workflow deploys to the configured SSH target. It keeps runtime content and uploads on the server rather than syncing them from the repository. Configure the required SSH secrets in the repository before using the workflow.
+
+For host-specific setup and admin guidance, see [README.txt](README.txt).

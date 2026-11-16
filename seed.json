@@ -213,7 +213,8 @@
      "color": "#c2541b",
      "name": "Marketing"
     }
-   ]
+   ],
+   "homeLayout": "chart"
   }
  },
  "media": {}
